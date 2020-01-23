@@ -1,0 +1,44 @@
+{
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": true,
+    "explorer.confirmDelete": false,
+    "git.autofetch": true,
+    "editor.minimap.enabled": false,
+    "[css]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "editor.cursorStyle": "line-thin",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "editor.tabSize": 2,
+    "javascript.implicitProjectConfig.experimentalDecorators": true,
+    "material-icon-theme.folders.color": "#ef5350",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "workbench.iconTheme": "deepdark-material-icons",
+    "editor.renderIndentGuides": false,
+    "workbench.useExperimentalGridLayout": true,
+    "customizeUI.activityBar": "bottom",
+    "workbench.activityBar.visible": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.lineNumbers": "relative",
+    "editor.minimap.renderCharacters": false,
+    "editor.renderFinalNewline": false,
+    "editor.fontLigatures": true,
+    "python.jediEnabled": false,
+    "editor.fontFamily": "Hack",
+    "editor.fontSize": 13,
+    "window.zoomLevel": -0.9,
+    "editor.renderLineHighlight": "all",
+    "search.location": "panel",
+    "workbench.colorTheme": "Deepdark Material Theme | Default Version",
+    "sync.gist": "6e382b47e825fc47366476a43494e9cd"
+}
