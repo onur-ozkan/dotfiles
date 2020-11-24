@@ -1,11 +1,13 @@
-# Nvm configurations
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
 # Path to your oh-my-zsh installation.
-export ZSH="/home/nimda/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
 ZSH_THEME="robbyrussell"
+
+# Preferred editor for local and remote sessions
+export EDITOR='vim'
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
