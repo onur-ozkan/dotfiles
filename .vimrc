@@ -24,5 +24,4 @@ call plug#begin()
         Plug 'junegunn/fzf.vim'
         Plug 'airblade/vim-gitgutter'
         Plug 'itchyny/lightline.vim'
-        Plug 'lilydjwg/colorizer'
 call plug#end()
