@@ -7,10 +7,13 @@ if &term =~ '^screen'
 endif
 
 :set number relativenumber
+
 :set rtp+=~/.fzf
+
 " au VimEnter *  NERDTree
 let g:NERDTreeWinSize=50
 let NERDTreeWinPos=1
+
 let g:airline#extensions#tabline#formatter = 'default'
 set laststatus=2
 
@@ -21,4 +24,5 @@ call plug#begin()
         Plug 'junegunn/fzf.vim'
         Plug 'airblade/vim-gitgutter'
         Plug 'itchyny/lightline.vim'
+        Plug 'lilydjwg/colorizer'
 call plug#end()
