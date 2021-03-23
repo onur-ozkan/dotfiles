@@ -7,8 +7,11 @@ if &term =~ '^screen'
 endif
 
 :set number relativenumber
-
 :set rtp+=~/.fzf
+
+:set tabstop=4
+
+:colorscheme nimda
 
 " au VimEnter *  NERDTree
 let g:NERDTreeWinSize=50
