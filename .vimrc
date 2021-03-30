@@ -10,6 +10,8 @@ endif
 :set rtp+=~/.fzf
 
 :set tabstop=4
+:set shiftwidth=4
+:set softtabstop=4
 
 :colorscheme nimda
 
