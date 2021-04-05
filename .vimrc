@@ -1,3 +1,6 @@
+nmap ` vi
+nmap = ysiw
+
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
     execute "set <xUp>=\e[1;*A"
