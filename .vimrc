@@ -23,7 +23,6 @@ let g:airline#extensions#tabline#formatter = 'default'
 set laststatus=2
 
 call plug#begin()
-        Plug 'ycm-core/YouCompleteMe'
         Plug 'preservim/nerdtree'
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
