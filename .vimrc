@@ -23,6 +23,7 @@ let g:airline#extensions#tabline#formatter = 'default'
 set laststatus=2
 
 call plug#begin()
+        Plug 'tpope/vim-surround'
         Plug 'preservim/nerdtree'
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
