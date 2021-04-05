@@ -9,14 +9,14 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
-:set number relativenumber
-:set rtp+=~/.fzf
+set number relativenumber
+set rtp+=~/.fzf
 
-:set tabstop=4
-:set shiftwidth=4
-:set softtabstop=4
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
-:colorscheme nimda
+colorscheme nimda
 
 " au VimEnter *  NERDTree
 let g:NERDTreeWinSize=50
