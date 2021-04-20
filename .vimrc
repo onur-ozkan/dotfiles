@@ -9,6 +9,8 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
+set pastetoggle=<F2>
+
 set number relativenumber
 set rtp+=~/.fzf
 
