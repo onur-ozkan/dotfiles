@@ -1,0 +1,17 @@
+#!/bin/bash
+
+vol=$(amixer sget Master | grep 'Right:' | head -n 1 | awk -F'[][]' '{ print $2 }')
+vol_status=$(amixer sget Master | grep 'Right:' | head -n 1 | awk '{print $NF}')
+
+if [ $vol_status == "[off]" ]
+then
+        vol_icon=" "
+elif [ ${vol::-1} -eq 0 ]
+then
+        vol_icon=" "
+elif [ ${vol::-1} -lt 50 ]
+then
+        vol_icon=" "
+else
+        vol_icon=" "
+fi
