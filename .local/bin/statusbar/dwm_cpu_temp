@@ -1,0 +1,6 @@
+#!/bin/bash
+
+icon=""
+temp=$(</sys/class/thermal/thermal_zone0/temp)
+
+printf "$icon ^c#f7ca88^$((temp/1000))^c#d75f5f^°C^d^"
