@@ -5,7 +5,7 @@ bat_status=$(</sys/class/power_supply/BAT0/status)
 
 if [ $bat_status == "Charging" ]
 then
-	battery_icon=" "
+	battery_icon=""
 elif [ $bat_capacity -lt 15 ]
 then
 	battery_icon=" "
