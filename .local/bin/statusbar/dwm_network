@@ -3,13 +3,14 @@
 cache_path=~/.cache/.traffic
 
 if [[ $(tail -n+3 /proc/net/wireless 2>/dev/null) ]]; then
-	wireless_icon=" "
+        ssid=$(nmcli -t -f name connection show --active)
+        wireless_icon="  ^c#f7ca88^$ssid^d^ "
 elif [[ $(grep "" /sys/class/net/eth0/* 2>/dev/null) ]]; then
-	wired_icon=" "
+        wired_icon=" LAN"
 fi
 
 if [[ $(nmcli con show --active | grep -i vpn 2>/dev/null) ]]; then
-	vpn_icon="旅 "
+        vpn_icon="旅 "
 fi
 
 old_rx=$(head -n 1 $cache_path)
