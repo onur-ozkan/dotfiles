@@ -1,34 +1,14 @@
-#!/bin/bash
-
-cache_path=~/.cache/.traffic
+#! /bin/bash
 
 if [[ $(tail -n+3 /proc/net/wireless 2>/dev/null) ]]; then
         ssid=$(nmcli -t -f name connection show --active)
-        wireless_icon="  ^c#f7ca88^$ssid^d^ "
+        wireless_icon="  ^c#f7ca88^$ssid^d^"
 elif [[ $(grep "" /sys/class/net/eth0/* 2>/dev/null) ]]; then
-        wired_icon=" LAN"
+        wired_icon=" ^c#f7ca88^LAN^d^"
 fi
 
 if [[ $(nmcli con show --active | grep -i vpn 2>/dev/null) ]]; then
         vpn_icon="旅 "
 fi
 
-old_rx=$(head -n 1 $cache_path)
-old_tx=$(tail -1 $cache_path)
-
-printf "0\n0\n" > $cache_path
-
-NETWORK_INTERFACE=$(ip route get 1.1.1.1 | grep -Po '(?<=dev\s)\w+' | cut -f1 -d ' ')
-
-new_rx=`</sys/class/net/$NETWORK_INTERFACE/statistics/rx_bytes`
-new_tx=`</sys/class/net/$NETWORK_INTERFACE/statistics/tx_bytes`
-
-sed -i "1s/^.*$/$new_rx/" $cache_path
-sed -i "2s/^.*$/$new_tx/" $cache_path
-
-tx_bytes=`expr $new_tx - $old_tx`
-rx_bytes=`expr $new_rx - $old_rx`
-tx_kbs=`expr $tx_bytes / 1024`
-rx_kbs=`expr $rx_bytes / 1024`
-
-printf "$vpn_icon$wired_icon$wireless_icon ^c#87af5f^$rx_kbs"kb^d^"  ^c#87afd7^$tx_kbs"kb^d^""
+printf "$vpn_icon$wired_icon$wireless_icon"
