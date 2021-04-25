@@ -6,7 +6,7 @@ nmap ` vi
 " surround selected gap 
 nmap = ysiw
 " Open file explorer
-nnoremap <Tab> :NERDTree <CR>
+nnoremap <silent> <Tab> :NERDTreeToggle <CR>
 " Open file window
 nnoremap <Enter> :GFiles <CR>
 " Show open tabs
@@ -42,6 +42,7 @@ set softtabstop=4
 " au VimEnter *  NERDTree
 let g:NERDTreeWinSize=50
 let NERDTreeWinPos=1
+let NERDTreeShowHidden=1
 
 let g:airline#extensions#tabline#formatter = 'default'
 set laststatus=2
