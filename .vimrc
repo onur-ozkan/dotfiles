@@ -1,8 +1,6 @@
 set term=xterm-256color
 colorscheme nimda
 
-" visual mode
-nmap ` vi
 " surround selected gap 
 nmap = ysiw
 " Open file explorer
