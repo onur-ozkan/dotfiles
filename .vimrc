@@ -8,7 +8,7 @@ nmap = ysiw
 " Open file explorer
 nnoremap <Tab> :NERDTree <CR>
 " Open file window
-nnoremap <Enter> :Files <CR>
+nnoremap <Enter> :GFiles <CR>
 " Show open tabs
 nnoremap <BS> :Windows <CR>
 " Search in current file
@@ -23,10 +23,10 @@ nnoremap <C-g> :BCommits <CR>
 nnoremap <C-c> :Commands <CR>
 
 " Window sizing
-noremap <silent> <C-Left> :vertical resize +3<CR>
-noremap <silent> <C-Right> :vertical resize -3<CR>
-noremap <silent> <C-Up> :resize +3<CR>
-noremap <silent> <C-Down> :resize -3<CR>
+noremap <silent> <S-Left> :vertical resize +3<CR>
+noremap <silent> <S-Right> :vertical resize -3<CR>
+noremap <silent> <S-Up> :resize +3<CR>
+noremap <silent> <S-Down> :resize -3<CR>
 
 " Paste mode toggling
 set pastetoggle=<F2>
