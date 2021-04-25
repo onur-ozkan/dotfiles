@@ -1,5 +1,6 @@
 nmap ` vi
 nmap = ysiw
+nnoremap <Enter> :Files <CR>
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
