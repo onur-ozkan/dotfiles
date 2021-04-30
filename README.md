@@ -1,6 +1,6 @@
 Onur's Dotfiles
 --------------------
-Dotfiles of my simple suck less workspace environment
+Dotfiles of my simple linux environment
 
 
 Requirements
@@ -16,10 +16,10 @@ Requirements
 
 Installation
 --------------------
-```sh
-git clone https://github.com/ozkanonur/dotfiles
-cd dotfiles
-./install
+```console
+$ git clone https://github.com/ozkanonur/dotfiles
+$ cd dotfiles
+$ ./install
 ```
 
 
