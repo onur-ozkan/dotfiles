@@ -1,8 +1,3 @@
-Onur's Dotfiles
---------------------
-Dotfiles of my simple linux environment
-
-
 Requirements
 --------------------
 - [dwm-enhanced](https://github.com/ozkanonur/dwm-enhanced)
