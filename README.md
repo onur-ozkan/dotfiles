@@ -14,6 +14,15 @@ Requirements
 - htop  (optional)
 
 
+Installation
+--------------------
+```sh
+git clone https://github.com/ozkanonur/dotfiles
+cd dotfiles
+./install
+```
+
+
 Screenshots
 --------------------
 ![ss1](https://user-images.githubusercontent.com/39852038/116628545-07529180-a958-11eb-9641-01fc867fb45d.png)
