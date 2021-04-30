@@ -7,4 +7,5 @@ fi
 
 # User specific environment and startup programs
 
-export PATH="$HOME/.local/bin/statusbar:$PATH"
+PATH="$HOME/.local/bin/statusbar:$PATH"
+export PATH="/snap/bin:$PATH"
