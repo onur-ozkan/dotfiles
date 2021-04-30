@@ -11,7 +11,6 @@ Requirements
 - [dwmblocks-enhanced](https://github.com/ozkanonur/dwmblocks-enhanced)
 - vim   (optional)
 - tilda (optional)
-- htop  (optional)
 
 
 Installation
