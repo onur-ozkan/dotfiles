@@ -131,4 +131,8 @@ call plug#begin()
 
 	" Linting/error highlighting
 	Plug 'dense-analysis/ale'
+	
+	" GoLang
+   	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
