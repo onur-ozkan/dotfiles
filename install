@@ -23,7 +23,6 @@ vim -c OmniSharpInstall -c qa
 vim -c GoInstallBinaries -c qa
 
 
-
 # x
 cp .xsession ~/
 
