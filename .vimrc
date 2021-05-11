@@ -2,7 +2,7 @@
 	" surround selected gap 
 	nmap = ysiw
 	" Open file explorer
-	nnoremap <silent> <Tab> :NERDTreeToggle <CR>
+	nnoremap <silent> ` :NERDTreeToggle <CR>
 	" Open file window
 	nnoremap <Enter> :GFiles <CR>
 	" Show open tabs
@@ -17,7 +17,7 @@
 	nnoremap <C-g> :BCommits <CR>
 	" Show available commands
 	nnoremap <C-c> :Commands <CR>
-
+    
 	" Window sizing
 	noremap <silent> <S-Left> :vertical resize +3<CR>
 	noremap <silent> <S-Right> :vertical resize -3<CR>
@@ -51,7 +51,9 @@
 " Settings {
 	set term=xterm-256color
 	colorscheme nimda
-	
+
+    silent verbose setlocal omnifunc
+
 	filetype indent plugin on
 	if !exists('g:syntax_on') | syntax enable | endif
 	set encoding=utf-8
@@ -88,26 +90,41 @@
 	set updatetime=1000
 " Settings }
 
-" OmniSharp: {{{
-let g:OmniSharp_popup_position = 'peek'
+" OmniSharp {
+	let g:OmniSharp_popup_position = 'peek'
 
-let g:OmniSharp_popup_options = {
-\ 'highlight': 'Normal',
-\ 'padding': [0, 0, 0, 0],
-\ 'border': [1]
-\}
+	let g:OmniSharp_popup_options = {
+	\ 'highlight': 'Normal',
+	\ 'padding': [0, 0, 0, 0],
+	\ 'border': [1]
+	\}
 
-let g:OmniSharp_popup_mappings = {
-\ 'sigNext': '<C-n>',
-\ 'sigPrev': '<C-p>',
-\ 'pageDown': ['<C-f>', '<PageDown>'],
-\ 'pageUp': ['<C-b>', '<PageUp>']
-\}
+	let g:OmniSharp_popup_mappings = {
+	\ 'sigNext': '<C-n>',
+	\ 'sigPrev': '<C-p>',
+	\ 'pageDown': ['<C-f>', '<PageDown>'],
+	\ 'pageUp': ['<C-b>', '<PageUp>']
+	\}
 
-let g:OmniSharp_highlight_groups = {
-\ 'ExcludedCode': 'NonText'
-\}
-" }}}
+	let g:OmniSharp_highlight_groups = {
+	\ 'ExcludedCode': 'NonText'
+	\}
+" OmniSharp }
+
+" GoLang }
+    " Syntax highlighting
+    let g:go_highlight_fields = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_function_calls = 1
+    let g:go_highlight_extra_types = 1
+    let g:go_highlight_operators = 1
+
+    " Status line types/signatures
+    let g:go_auto_type_info = 1
+    
+    " Show autocomplete window when press '.'
+    au filetype go inoremap <buffer> . .<C-x><C-o>
+" GoLang }
 
 call plug#begin()
 	" Text surrounding
@@ -131,4 +148,10 @@ call plug#begin()
 
 	" Linting/error highlighting
 	Plug 'dense-analysis/ale'
+	
+	" GoLang
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    
+    " SuperTab
+    Plug 'ervandew/supertab'
 call plug#end()
