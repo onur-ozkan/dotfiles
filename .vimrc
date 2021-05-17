@@ -48,7 +48,7 @@
 	set term=xterm-256color
 	colorscheme nimda
 
-    	silent verbose setlocal omnifunc
+    silent verbose setlocal omnifunc
 
 	filetype indent plugin on
 	if !exists('g:syntax_on') | syntax enable | endif
