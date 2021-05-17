@@ -2,17 +2,11 @@
 	" surround selected gap 
 	nmap = ysiw
 	" Open file explorer
-	nnoremap <silent> ` :NERDTreeToggle <CR>
-	" Open file window
-	nnoremap <Enter> :GFiles <CR>
+	nnoremap <silent> ` :NnnPicker <CR>
 	" Show open tabs
 	nnoremap <BS> :Windows <CR>
 	" Search in current file
 	nnoremap <C-f> :BLines <CR>
-	" Search in loaded buffers
-	nnoremap <C-a> :Lines <CR>
-	" Show loaded buffers
-	nnoremap <C-b> :Buffers <CR>
 	" Show commit history of current file
 	nnoremap <C-g> :BCommits <CR>
 	" Show available commands
@@ -126,12 +120,14 @@
     au filetype go inoremap <buffer> . .<C-x><C-o>
 " GoLang }
 
+" n³ }
+    let g:nnn#command = 'nnn -C -a -P f'
+    let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+" n³ }
+
 call plug#begin()
 	" Text surrounding
 	Plug 'tpope/vim-surround'
-	
-	" File Explorer
-	Plug 'preservim/nerdtree'
 
 	" Fzf
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -154,4 +150,10 @@ call plug#begin()
     
     " SuperTab
     Plug 'ervandew/supertab'
+
+    " Vim Search
+    Plug 'eugen0329/vim-esearch'
+
+    " n³
+    Plug 'mcchrish/nnn.vim'
 call plug#end()
