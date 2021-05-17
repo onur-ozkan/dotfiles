@@ -2,7 +2,9 @@
 	" surround selected gap 
 	nmap = ysiw
 	" Open file explorer
-	nnoremap <silent> ` :NnnPicker <CR>
+    nnoremap <silent> ` :NERDTreeToggle <CR>
+    " Open nnn
+	nnoremap <silent> <Enter> :NnnPicker <CR>
 	" Show open tabs
 	nnoremap <BS> :Windows <CR>
 	" Search in current file
@@ -121,8 +123,8 @@
 " GoLang }
 
 " n³ }
-    let g:nnn#command = 'nnn -C -a -P f'
-    let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+    let g:nnn#command = 'tmux new -s "nnn-vim" nnn -P p'
+    let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.75, 'highlight': 'Debug' } }
 " n³ }
 
 call plug#begin()
@@ -132,6 +134,9 @@ call plug#begin()
 	" Fzf
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+
+	" File Explorer
+	Plug 'preservim/nerdtree'
 
 	" Statusline
 	Plug 'itchyny/lightline.vim'
@@ -148,12 +153,12 @@ call plug#begin()
 	" GoLang
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     
-    " SuperTab
-    Plug 'ervandew/supertab'
+    	" SuperTab
+	Plug 'ervandew/supertab'
 
-    " Vim Search
-    Plug 'eugen0329/vim-esearch'
+	" Vim Search
+	Plug 'eugen0329/vim-esearch'
 
-    " n³
-    Plug 'mcchrish/nnn.vim'
+	" n³
+	Plug 'mcchrish/nnn.vim'
 call plug#end()
