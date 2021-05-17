@@ -123,8 +123,10 @@
 " GoLang }
 
 " n³ }
-    let g:nnn#command = 'tmux new -s "nnn-vim" nnn -P p'
-    let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.75, 'highlight': 'Debug' } }
+    let g:nnn#action = {'<Enter>': 'tab split' }
+    " let g:nnn#command = 'tmux new -s "nnn-vim" nnn -P p'
+    let g:nnn#command = 'nnn -P f'
+    let g:nnn#layout = { 'window': { 'width': 0.5, 'height': 0.5, 'highlight': 'Debug' } }
 " n³ }
 
 call plug#begin()
@@ -135,7 +137,7 @@ call plug#begin()
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 
-	" File Explorer
+    " File Explorer
 	Plug 'preservim/nerdtree'
 
 	" Statusline
@@ -153,7 +155,7 @@ call plug#begin()
 	" GoLang
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     
-    	" SuperTab
+    " SuperTab
 	Plug 'ervandew/supertab'
 
 	" Vim Search
