@@ -19,7 +19,7 @@ export EDITOR=vim
 export TERMINAL=st
 
 # nnn
-export NNN_PLUG='p:preview-tui-ext;f:fzopen'
+export NNN_PLUG='p:preview-tui;f:fzopen'
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_OPTS="H"
-alias nnnn='tmux new-session "nnn . -a"'
+alias nnnn='tmux new-session "nnn . -a -P p"'
