@@ -123,10 +123,13 @@
 " GoLang }
 
 " n³ }
-    let g:nnn#action = {'<Enter>': 'tab split' }
     " let g:nnn#command = 'tmux new -s "nnn-vim" nnn -P p'
-    let g:nnn#command = 'nnn -P f'
-    let g:nnn#layout = { 'window': { 'width': 0.5, 'height': 0.5, 'highlight': 'Debug' } }
+    let g:nnn#command = 'nnn -C -P f'
+    let g:nnn#layout = 'new'
+    let g:nnn#action = {
+      \ '<Enter>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
 " n³ }
 
 call plug#begin()
