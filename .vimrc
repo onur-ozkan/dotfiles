@@ -5,15 +5,7 @@
     nnoremap <silent> ` :NERDTreeToggle <CR>
     " Open nnn
 	nnoremap <silent> <Enter> :NnnPicker <CR>
-	" Show open tabs
-	nnoremap <BS> :Windows <CR>
-	" Search in current file
-	nnoremap <C-f> :BLines <CR>
-	" Show commit history of current file
-	nnoremap <C-g> :BCommits <CR>
-	" Show available commands
-	nnoremap <C-c> :Commands <CR>
-    
+ 
 	" Window sizing
 	noremap <silent> <S-Left> :vertical resize +3<CR>
 	noremap <silent> <S-Right> :vertical resize -3<CR>
@@ -22,11 +14,10 @@
 
 	" Paste mode toggling
 	set pastetoggle=<F2>
-" Mappings }
 
-" Fzf {
-	set rtp+=~/.fzf
-" Fzf }
+    " Commit message of the line
+    nmap <silent><Leader>g :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
+" Mappings }
 
 " NERDTree {
 	let g:NERDTreeWinSize=50
@@ -135,10 +126,6 @@
 call plug#begin()
 	" Text surrounding
 	Plug 'tpope/vim-surround'
-
-	" Fzf
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
 
     " File Explorer
 	Plug 'preservim/nerdtree'
