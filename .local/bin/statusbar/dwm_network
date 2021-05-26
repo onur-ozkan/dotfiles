@@ -1,7 +1,7 @@
 #! /bin/bash
 
 if [[ $(tail -n+3 /proc/net/wireless 2>/dev/null) ]]; then
-        ssid=$(nmcli -t -f name connection show --active)
+        ssid=$(nmcli -t -f name connection show --active | head -n 1)
         wireless_icon="  ^c#f7ca88^$ssid^d^"
 elif [[ $(grep "" /sys/class/net/eth0/* 2>/dev/null) ]]; then
         wired_icon=" ^c#f7ca88^LAN^d^"
