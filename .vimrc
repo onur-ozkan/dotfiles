@@ -6,9 +6,7 @@
     " Open nnn
 	nnoremap <silent> <Enter> :NnnPicker <CR>
 	" Show open tabs
-	nnoremap <C-w> :Windows <CR>
-	" Search in current file
-	nnoremap <C-f> :BLines <CR>
+	nnoremap <BS> :Windows <CR>
 	" Show commit history of current file
 	nnoremap <C-g> :BCommits <CR>
 	" Show available commands
@@ -35,6 +33,7 @@
 	let g:NERDTreeWinSize=50
 	let NERDTreeWinPos=1
 	let NERDTreeShowHidden=1
+    let NERDTreeQuitOnOpen=1
 " NERDTree }
 
 " ALE {
@@ -44,7 +43,8 @@
 	let g:ale_sign_style_error = ''
 	let g:ale_sign_style_warning = ''
 
-	let g:ale_linters = { 'cs': ['OmniSharp'] }
+    let g:ale_cursor_detail = 1
+    let g:ale_linters = { 'cs': ['OmniSharp'] }
 " ALE }
 
 " Settings {
