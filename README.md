@@ -23,3 +23,5 @@ Screenshots
 ![ss2](https://user-images.githubusercontent.com/39852038/116628548-0883be80-a958-11eb-805c-b9885eb3605d.png)
 ![ss3](https://user-images.githubusercontent.com/39852038/116628550-091c5500-a958-11eb-8d69-f10074cf60c0.png)
 ![ss4](https://user-images.githubusercontent.com/39852038/116675771-dc475c80-a9ae-11eb-9b89-12b3f7bb1d0c.png)
+
+Related article: https://onurozkan.dev/posts/reasons-that-i-left-gnome-and-kde
