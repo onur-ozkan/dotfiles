@@ -1,9 +1,9 @@
 #!/bin/bash
 
-vol=$(amixer sget Master | grep 'Right:' | head -n 1 | awk -F'[][]' '{ print $2 }')
-vol_status=$(amixer sget Master | grep 'Right:' | head -n 1 | awk '{print $NF}')
+vol=$(pactl list sinks | tr ' ' '\n' | grep -m1 '%' | tr -d '%')
+vol_status=$(pactl list sinks | grep 'Mute: yes')
 
-if [ $vol_status == "[off]" ]
+if [ -n $vol_status ]
 then
         vol_icon=" "
 elif [ ${vol::-1} -eq 0 ]
@@ -16,4 +16,4 @@ else
         vol_icon=" "
 fi
 
-printf "$vol_icon^c#f7ca88^$vol%^d^"
+printf "$vol_icon^c#f7ca88^$vol%%^d^"
