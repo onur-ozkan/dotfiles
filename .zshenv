@@ -5,7 +5,6 @@ bindkey "^[[1;5D" backward-word
 pactl set-sink-volume 0 50%
 pactl set-sink-mute @DEFAULT_SINK@ true
 
-
 # dwmblock scripts
 PATH="$HOME/.local/bin/statusbar:$PATH"
 
