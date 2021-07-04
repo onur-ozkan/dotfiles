@@ -1,10 +1,6 @@
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# default configuration of audio on boot
-pactl set-sink-volume 0 50% && kill -44 $(pidof dwmblocks
-pactl set-sink-mute @DEFAULT_SINK@ true && kill -44 $(pidof dwmblocks
-
 # dwmblock scripts
 PATH="$HOME/.local/bin/statusbar:$PATH"
 
