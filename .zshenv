@@ -1,6 +1,9 @@
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# bash scripts
+PATH="$HOME/.local/bin:$PATH"
+
 # dwmblock scripts
 PATH="$HOME/.local/bin/statusbar:$PATH"
 
