@@ -8,7 +8,6 @@ if [[ -n "$dmenu_input" && "$dmenu_input" == *"."* ]]; then
         echo $dmenu_input
         xdg-open "${dmenu_input}" 2> /dev/null
     else
-        echo "nealaka"
         xdg-open "https://${dmenu_input}" 2> /dev/null
     fi
 elif [ -n "$dmenu_input" ]; then
