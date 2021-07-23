@@ -5,7 +5,6 @@ dmenu_input=$(echo '' | dmenu -p "Search:")
 
 if [[ -n "$dmenu_input" && "$dmenu_input" == *"."* ]]; then
     if [[ "$dmenu_input" == *"http"* ]]; then
-        echo $dmenu_input
         xdg-open "${dmenu_input}" 2> /dev/null
     else
         xdg-open "https://${dmenu_input}" 2> /dev/null
