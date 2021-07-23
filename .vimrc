@@ -91,6 +91,19 @@
 	set updatetime=1000
 " Settings }
 
+" Lightline {
+let g:lightline = {
+      \ 'colorscheme': 'apprentice',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+" Lightline }
+
 " OmniSharp {
 	let g:OmniSharp_popup_position = 'peek'
 
