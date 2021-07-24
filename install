@@ -30,7 +30,7 @@ cp .dwm/* ~/.dwm
 cp -r .local/bin/* ~/.local/bin
 
 # config
-cp .config/* ~/.config/
+cp .config/* ~/.config
 
 # wallpapers
 cp -R .backgrounds ~
