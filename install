@@ -5,15 +5,13 @@ mkdir -p ~/.config
 mkdir -p ~/.dwm
 mkdir -p ~/.local/bin/statusbar
 
-
 # zsh / bash
 cp .zshenv ~
 cp .zshrc ~
 cp .bash_profile ~
 
-
 # vim
-cp .vimrc ~/
+cp .vimrc ~
 curl -fLo ~/.vim/colors/nimda.vim --create dirs \
 	https://raw.githubusercontent.com/ozkanonur/nimda-vim/master/colors/nimda.vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -22,10 +20,8 @@ vim -c PlugInstall -c qa
 vim -c OmniSharpInstall -c qa
 vim -c GoInstallBinaries -c qa
 
-
 # x
 cp .xsession ~
-
 
 # dwm
 cp .dwm/* ~/.dwm
@@ -33,10 +29,8 @@ cp .dwm/* ~/.dwm
 # scripts
 cp -r .local/bin/* ~/.local/bin
 
-
 # config
 cp .config/* ~/.config/
-
 
 # wallpapers
 cp -R .backgrounds ~
