@@ -52,7 +52,10 @@
 " Settings {
 	set term=xterm-256color
 	colorscheme nimda
-	
+
+    hi! Normal ctermbg=NONE guibg=NONE
+    hi! NonText ctermbg=NONE guibg=NONE
+
 	silent verbose setlocal omnifunc
 
 	filetype indent plugin on
