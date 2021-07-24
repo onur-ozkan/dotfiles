@@ -7,9 +7,9 @@ mkdir -p ~/.local/bin/statusbar
 
 
 # zsh / bash
-cp .zshenv ~/
-cp .zshrc ~/
-cp .bash_profile ~/
+cp .zshenv ~
+cp .zshrc ~
+cp .bash_profile ~
 
 
 # vim
@@ -24,18 +24,19 @@ vim -c GoInstallBinaries -c qa
 
 
 # x
-cp .xsession ~/
+cp .xsession ~
 
 
 # dwm
-cp .dwm/* ~/.dwm/
-cp .local/bin/statusbar/* ~/.local/bin/statusbar/
+cp .dwm/* ~/.dwm
+
+# scripts
+cp -r .local/bin/* ~/.local/bin
 
 
 # config
 cp .config/* ~/.config/
 
 
-# other
+# wallpapers
 cp -R .backgrounds ~
-cp .local/bin/screen_switcher ~/.local/bin/
