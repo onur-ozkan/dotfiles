@@ -2,13 +2,13 @@
 	" surround selected gap 
 	nmap = ysiw
 	" Open file explorer
-    nnoremap <silent> ` :NERDTreeToggle <CR>
-    " Open nnn
+	nnoremap <silent> ` :NERDTreeToggle <CR>
+	" Open nnn
 	nnoremap <silent> <Enter> :NnnPicker <CR>
 	" Show open tabs
 	nnoremap <BS> :Windows <CR>
-    " Search in current file
-    nnoremap <C-f> :BLines <CR>
+	" Search in current file
+	nnoremap <C-f> :BLines <CR>
 	" Show commit history of current file
 	nnoremap <C-g> :BCommits <CR>
 	" Show available commands
@@ -22,9 +22,9 @@
 
 	" Paste mode toggling
 	set pastetoggle=<F2>
-
-    " Commit message of the line
-    nmap <silent><Leader>g :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
+	
+	" Commit message of the line
+	nmap <silent><Leader>g :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
 " Mappings }
 
 " Fzf {
@@ -35,7 +35,7 @@
 	let g:NERDTreeWinSize=50
 	let NERDTreeWinPos=1
 	let NERDTreeShowHidden=1
-    let NERDTreeQuitOnOpen=1
+	let NERDTreeQuitOnOpen=1
 " NERDTree }
 
 " ALE {
@@ -44,16 +44,16 @@
 	let g:ale_sign_info = ''
 	let g:ale_sign_style_error = ''
 	let g:ale_sign_style_warning = ''
-
-    " let g:ale_cursor_detail = 1
-    let g:ale_linters = { 'cs': ['OmniSharp'] }
+	
+	" let g:ale_cursor_detail = 1
+	let g:ale_linters = { 'cs': ['OmniSharp'] }
 " ALE }
 
 " Settings {
 	set term=xterm-256color
 	colorscheme nimda
-
-    silent verbose setlocal omnifunc
+	
+	silent verbose setlocal omnifunc
 
 	filetype indent plugin on
 	if !exists('g:syntax_on') | syntax enable | endif
@@ -92,16 +92,16 @@
 " Settings }
 
 " Lightline {
-let g:lightline = {
-      \ 'colorscheme': 'apprentice',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+	let g:lightline = {
+	      \ 'colorscheme': 'apprentice',
+	      \ 'active': {
+	      \   'left': [ [ 'mode', 'paste' ],
+	      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+	      \ },
+	      \ 'component_function': {
+	      \   'gitbranch': 'FugitiveHead'
+	      \ },
+	      \ }
 " Lightline }
 
 " OmniSharp {
@@ -126,28 +126,28 @@ let g:lightline = {
 " OmniSharp }
 
 " GoLang }
-    " Syntax highlighting
-    let g:go_highlight_fields = 1
-    let g:go_highlight_functions = 1
-    let g:go_highlight_function_calls = 1
-    let g:go_highlight_extra_types = 1
-    let g:go_highlight_operators = 1
+	" Syntax highlighting
+	let g:go_highlight_fields = 1
+	let g:go_highlight_functions = 1
+	let g:go_highlight_function_calls = 1
+	let g:go_highlight_extra_types = 1
+	let g:go_highlight_operators = 1
 
-    " Status line types/signatures
-    let g:go_auto_type_info = 1
-    
-    " Show autocomplete window when press '.'
-    au filetype go inoremap <buffer> . .<C-x><C-o>
+	" Status line types/signatures
+	let g:go_auto_type_info = 1
+
+	" Show autocomplete window when press '.'
+	au filetype go inoremap <buffer> . .<C-x><C-o>
 " GoLang }
 
 " n³ }
-    " let g:nnn#command = 'tmux new -s "nnn-vim" nnn -P p'
-    let g:nnn#command = 'nnn -C -P f'
-    let g:nnn#layout = 'new'
-    let g:nnn#action = {
-      \ '<Enter>': 'tab split',
-      \ '<c-x>': 'split',
-      \ '<c-v>': 'vsplit' }
+	" let g:nnn#command = 'tmux new -s "nnn-vim" nnn -P p'
+	let g:nnn#command = 'nnn -C -P f'
+	let g:nnn#layout = 'new'
+	let g:nnn#action = {
+	\ '<Enter>': 'tab split',
+	\ '<c-x>': 'split',
+	\ '<c-v>': 'vsplit' }
 " n³ }
 
 call plug#begin()
@@ -157,8 +157,8 @@ call plug#begin()
 	" Fzf
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-
-    " File Explorer
+	
+	" File Explorer
 	Plug 'preservim/nerdtree'
 
 	" Statusline
@@ -175,8 +175,8 @@ call plug#begin()
 	
 	" GoLang
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    
-    " SuperTab
+	
+	" SuperTab
 	Plug 'ervandew/supertab'
 
 	" Vim Search
