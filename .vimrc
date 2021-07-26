@@ -50,6 +50,8 @@
 " ALE }
 
 " Settings {
+	set nocompatible
+
 	set term=xterm-256color
 	colorscheme nimda
 
@@ -187,4 +189,7 @@ call plug#begin()
 
 	" n³
 	Plug 'mcchrish/nnn.vim'
+
+	" Polyglot
+	Plug 'sheerun/vim-polyglot'
 call plug#end()
