@@ -199,6 +199,6 @@ call plug#begin()
 	" n³
 	Plug 'mcchrish/nnn.vim'
 
-	" Polyglot
-	Plug 'sheerun/vim-polyglot'
+	" Illuminate
+	Plug 'RRethy/vim-illuminate'
 call plug#end()
