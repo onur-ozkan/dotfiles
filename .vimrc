@@ -58,6 +58,13 @@
 	let g:ale_linters = { 'cs': ['OmniSharp'] }
 " ALE }
 
+" vim-illuminate {
+	augroup illuminate_augroup
+		autocmd!
+		autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
+	augroup END
+" vim-ulluminate }
+
 " Settings {
 	set nocompatible
 
