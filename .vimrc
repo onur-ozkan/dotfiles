@@ -64,6 +64,8 @@
 	set term=xterm-256color
 	colorscheme nimda
 
+	set shortmess-=S
+
 	hi! Normal ctermbg=NONE guibg=NONE
 	hi! NonText ctermbg=NONE guibg=NONE
 
