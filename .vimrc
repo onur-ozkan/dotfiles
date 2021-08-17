@@ -1,5 +1,5 @@
 " Mappings {
-	" surround selected gap 
+	" surround selected gap
 	nmap = ysiw
 	" Open file explorer
 	nnoremap <silent> ` :NERDTreeToggle <CR>
@@ -13,7 +13,7 @@
 	nnoremap <C-g> :BCommits <CR>
 	" Show available commands
 	nnoremap <C-c> :Commands <CR>
-    
+
 	" Window sizing
 	noremap <silent> <S-Left> :vertical resize +3<CR>
 	noremap <silent> <S-Right> :vertical resize -3<CR>
@@ -22,7 +22,7 @@
 
 	" Paste mode toggling
 	set pastetoggle=<F2>
-	
+
 	" Commit message of the line
 	nmap <silent><Leader>g :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
 " Mappings }
@@ -53,7 +53,7 @@
 	let g:ale_sign_info = ''
 	let g:ale_sign_style_error = ''
 	let g:ale_sign_style_warning = ''
-	
+
 	" let g:ale_cursor_detail = 1
 	let g:ale_linters = { 'cs': ['OmniSharp'] }
 " ALE }
@@ -84,6 +84,11 @@
 	scriptencoding utf-8
 
 	set number relativenumber
+
+	" Highlight extra white spaces
+	match Error /\s\+$/
+	autocmd BufWinEnter * match Error /\s\+$/
+	autocmd BufWinLeave * call clearmatches()
 
 	set completeopt=menuone,noinsert,noselect,popuphidden
 	set completepopup=highlight:Pmenu,border:off
@@ -176,7 +181,7 @@ call plug#begin()
 	" Fzf
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	
+
 	" File Explorer
 	Plug 'preservim/nerdtree'
 
@@ -185,16 +190,16 @@ call plug#begin()
 
 	" Omnisharp for C#
 	Plug 'OmniSharp/omnisharp-vim'
-	
+
 	" Autocompletion
 	Plug 'prabirshrestha/asyncomplete.vim'
 
 	" Linting/error highlighting
 	Plug 'dense-analysis/ale'
-	
+
 	" GoLang
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-	
+
 	" SuperTab
 	Plug 'ervandew/supertab'
 
