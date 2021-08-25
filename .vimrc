@@ -126,7 +126,7 @@
 
 " Lightline {
 	let g:lightline = {
-	      \ 'colorscheme': 'apprentice',
+	      \ 'colorscheme': 'ayu_dark',
 	      \ 'active': {
 	      \   'left': [ [ 'mode', 'paste' ],
 	      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
