@@ -20,13 +20,9 @@ $ ./install
 Screenshots
 --------------------
 ### DE
-![ss1](https://user-images.githubusercontent.com/39852038/116628545-07529180-a958-11eb-9641-01fc867fb45d.png)
-![ss2](https://user-images.githubusercontent.com/39852038/116628548-0883be80-a958-11eb-805c-b9885eb3605d.png)
-![ss3](https://user-images.githubusercontent.com/39852038/116628550-091c5500-a958-11eb-8d69-f10074cf60c0.png)
-![ss4](https://user-images.githubusercontent.com/39852038/116675771-dc475c80-a9ae-11eb-9b89-12b3f7bb1d0c.png)
-
-### Vim & Tmux
-![2021-08-26_09-11](https://user-images.githubusercontent.com/39852038/130910261-b6e71adf-f500-4bae-b9b7-872b6159df3e.png)
-
+![2021-08-28_09-53](https://user-images.githubusercontent.com/39852038/131209490-c0f5d7e7-48e9-484a-a883-007baa6a5912.png)
+![2021-08-28_09-26](https://user-images.githubusercontent.com/39852038/131209511-95702161-dc79-4cdb-b53a-2c998de46484.png)
+![2021-08-28_09-54](https://user-images.githubusercontent.com/39852038/131209498-2e7664b8-666a-4daf-802f-857b475ef1d1.png)
+![2021-08-28_09-45](https://user-images.githubusercontent.com/39852038/131209519-3938bbb0-9791-4cff-b445-52d30cf7d12a.png)
 
 Related article: https://onurozkan.dev/posts/reasons-that-i-left-gnome-and-kde
