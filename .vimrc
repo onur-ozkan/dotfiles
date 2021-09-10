@@ -225,6 +225,6 @@ call plug#begin()
 	" Illuminate
 	Plug 'RRethy/vim-illuminate'
 
-	 " Vim Move
-	 Plug 'matze/vim-move'
+	" Vim Move
+	Plug 'matze/vim-move'
 call plug#end()
