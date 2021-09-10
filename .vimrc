@@ -183,6 +183,10 @@
 	\ '<c-v>': 'vsplit' }
 " n³ }
 
+" vim-move }
+	let g:move_key_modifier = 'C'
+" vim-move }
+
 call plug#begin()
 	" Text surrounding
 	Plug 'tpope/vim-surround'
@@ -220,4 +224,7 @@ call plug#begin()
 
 	" Illuminate
 	Plug 'RRethy/vim-illuminate'
+
+	 " Vim Move
+	 Plug 'matze/vim-move'
 call plug#end()
