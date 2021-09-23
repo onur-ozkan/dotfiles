@@ -20,6 +20,7 @@ export GOPATH="$HOME/go"
 # defaults
 export EDITOR=vim
 export TERMINAL=st
+export FZF_DEFAULT_COMMAND='rg --hidden -l "" -g "!.git"'
 
 # nnn
 export NNN_PLUG='p:preview-tui;f:fzopen'
