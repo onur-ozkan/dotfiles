@@ -10,8 +10,8 @@
 	nmap = ysiw
 	" Open file explorer
 	nnoremap <silent> ` :NERDTreeToggle <CR>
-	" Open nnn
-	nnoremap <silent> <Enter> :NnnPicker <CR>
+	" File search
+	nnoremap <silent> <Enter> :Files <CR>
 	" Show open tabs
 	nnoremap <BS> :Windows <CR>
 	" Search in current file
@@ -173,16 +173,6 @@
 	au filetype go inoremap <buffer> . .<C-x><C-o>
 " GoLang }
 
-" n³ }
-	" let g:nnn#command = 'tmux new -s "nnn-vim" nnn -P p'
-	let g:nnn#command = 'nnn -C -P f'
-	let g:nnn#layout = 'new'
-	let g:nnn#action = {
-	\ '<Enter>': 'tab split',
-	\ '<c-x>': 'split',
-	\ '<c-v>': 'vsplit' }
-" n³ }
-
 " vim-move }
 	let g:move_key_modifier = 'C'
 " vim-move }
@@ -218,9 +208,6 @@ call plug#begin()
 
 	" Vim Search
 	Plug 'eugen0329/vim-esearch'
-
-	" n³
-	Plug 'mcchrish/nnn.vim'
 
 	" Illuminate
 	Plug 'RRethy/vim-illuminate'
