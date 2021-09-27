@@ -19,13 +19,11 @@ $ ./install
 
 Screenshots
 --------------------
-### Empty screen
-![2021-08-28_09-53](https://user-images.githubusercontent.com/39852038/131209490-c0f5d7e7-48e9-484a-a883-007baa6a5912.png)
-### Dmenu for searching on web
-![2021-08-28_09-26](https://user-images.githubusercontent.com/39852038/131209511-95702161-dc79-4cdb-b53a-2c998de46484.png)
-### Dmenu for searching app
-![2021-08-28_09-54](https://user-images.githubusercontent.com/39852038/131209498-2e7664b8-666a-4daf-802f-857b475ef1d1.png)
-### Tiled (default and one of the six layout mode) mode (with tmux, vim and shadow effect around the windows from xcompmgr)
-![2021-08-28_09-45](https://user-images.githubusercontent.com/39852038/131209519-3938bbb0-9791-4cff-b445-52d30cf7d12a.png)
+![2021-09-27_16-21](https://user-images.githubusercontent.com/39852038/134917864-990430e2-86fd-4b4f-abfd-e50f194065fc.png)
+![2021-09-27_16-24](https://user-images.githubusercontent.com/39852038/134917860-55ac3fe8-2b81-4c39-bac2-dbd77916d54f.png)
+![2021-09-27_16-25](https://user-images.githubusercontent.com/39852038/134917857-4b78c60d-969b-4a8f-931e-aa2c4b9bf8ae.png)
+![2021-09-27_16-26](https://user-images.githubusercontent.com/39852038/134917856-ff53a48e-f040-495b-878b-a1093ba375dd.png)
+![2021-09-27_16-27](https://user-images.githubusercontent.com/39852038/134917847-644c0d46-ac24-4a14-ab11-1844820c12af.png)
+
 
 Related article: https://onurozkan.dev/posts/reasons-that-i-left-gnome-and-kde
