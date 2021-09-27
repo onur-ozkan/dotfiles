@@ -4,6 +4,8 @@ Requirements
 - [st-enhanced](https://github.com/ozkanonur/st-enhanced)
 - [dmenu-enhanced](https://github.com/ozkanonur/dmenu-enhanced)
 - [dwmblocks-enhanced](https://github.com/ozkanonur/dwmblocks-enhanced)
+- [slock-enhanced](https://github.com/ozkanonur/slock-enhanced)
+- [ibhagwan/picom](https://github.com/ibhagwan/picom)
 - vim   (optional)
 - tilda (optional)
 
