@@ -7,6 +7,7 @@ Requirements
 - [slock-enhanced](https://github.com/ozkanonur/slock-enhanced)
 - [ibhagwan/picom](https://github.com/ibhagwan/picom)
 - vim   (optional)
+- nnn
 - tilda (optional)
 
 
