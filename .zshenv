@@ -26,4 +26,7 @@ export FZF_DEFAULT_COMMAND='rg --hidden -l "" -g "!.git"'
 export NNN_PLUG='p:preview-tui;f:fzopen'
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_OPTS="H"
-alias open='tmux new-session nnn -a -P p'
+
+# Intellij apps
+export _JAVA_AWT_WM_NONREPARENTING=1
+
