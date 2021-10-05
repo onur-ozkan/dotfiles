@@ -10,9 +10,6 @@ PATH="$HOME/.local/bin/statusbar:$PATH"
 # snap
 PATH="/snap/bin:$PATH"
 
-# rust
-PATH="$HOME/.cargo/bin:$PATH"
-
 # golang
 export PATH="$PATH:~$HOME/go/bin/"
 export GOPATH="$HOME/go"
@@ -30,3 +27,5 @@ export NNN_OPTS="H"
 # Intellij apps
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# omnisharp
+export OMNISHARP_ROSLYN="$HOME/.omnisharp/run"
