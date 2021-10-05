@@ -10,6 +10,9 @@ PATH="$HOME/.local/bin/statusbar:$PATH"
 # snap
 PATH="/snap/bin:$PATH"
 
+# rust
+PATH="$HOME/.cargo/bin:$PATH"
+
 # golang
 export PATH="$PATH:~$HOME/go/bin/"
 export GOPATH="$HOME/go"
