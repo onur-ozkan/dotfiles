@@ -1,3 +1,45 @@
+call plug#begin()
+	" Nimda
+	Plug 'ozkanonur/nimda-vim'
+
+	" Text surrounding
+	Plug 'tpope/vim-surround'
+
+	" Fzf
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
+
+	" File Explorer
+	Plug 'preservim/nerdtree'
+
+	" Statusline
+	Plug 'itchyny/lightline.vim'
+
+	" Omnisharp for C#
+	Plug 'OmniSharp/omnisharp-vim'
+
+	" Autocompletion
+	Plug 'prabirshrestha/asyncomplete.vim'
+
+	" Linting/error highlighting
+	Plug 'dense-analysis/ale'
+
+	" GoLang
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+	" SuperTab
+	Plug 'ervandew/supertab'
+
+	" Vim Search
+	Plug 'eugen0329/vim-esearch'
+
+	" Illuminate
+	Plug 'RRethy/vim-illuminate'
+
+	" Vim Move
+	Plug 'matze/vim-move'
+call plug#end()
+
 " Functions {
 	function TrimWhiteSpace()
 	  %s/\s*$//
@@ -176,42 +218,3 @@
 " vim-move }
 	let g:move_key_modifier = 'C'
 " vim-move }
-
-call plug#begin()
-	" Text surrounding
-	Plug 'tpope/vim-surround'
-
-	" Fzf
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
-
-	" File Explorer
-	Plug 'preservim/nerdtree'
-
-	" Statusline
-	Plug 'itchyny/lightline.vim'
-
-	" Omnisharp for C#
-	Plug 'OmniSharp/omnisharp-vim'
-
-	" Autocompletion
-	Plug 'prabirshrestha/asyncomplete.vim'
-
-	" Linting/error highlighting
-	Plug 'dense-analysis/ale'
-
-	" GoLang
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-	" SuperTab
-	Plug 'ervandew/supertab'
-
-	" Vim Search
-	Plug 'eugen0329/vim-esearch'
-
-	" Illuminate
-	Plug 'RRethy/vim-illuminate'
-
-	" Vim Move
-	Plug 'matze/vim-move'
-call plug#end()
