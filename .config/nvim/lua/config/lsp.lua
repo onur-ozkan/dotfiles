@@ -30,6 +30,16 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
+-- Custom diagnostic signs
+vim.fn.sign_define("LspDiagnosticsSignError",
+    {text = "", texthl = "GruvboxRed"})
+vim.fn.sign_define("LspDiagnosticsSignWarning",
+    {text = "", texthl = "GruvboxYellow"})
+vim.fn.sign_define("LspDiagnosticsSignInformation",
+    {text = "", texthl = "GruvboxBlue"})
+vim.fn.sign_define("LspDiagnosticsSignHint",
+    {text = "", texthl = "GruvboxAqua"})
+
 -- c/cpp
 lspconfig.ccls.setup {
   on_attach = on_attach,
@@ -67,3 +77,4 @@ lspconfig.rust_analyzer.setup{
   on_attach = on_attach
 }
 -- rust
+
