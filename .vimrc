@@ -53,7 +53,7 @@ call plug#end()
 	" Open file explorer
 	nnoremap <silent> ` :NERDTreeToggle <CR>
 	" File search
-	nnoremap <silent> <Enter> :Files <CR>
+	nnoremap <silent> <space>` :Files <CR>
 	" Show open tabs
 	nnoremap <BS> :Windows <CR>
 	" Search in current file
