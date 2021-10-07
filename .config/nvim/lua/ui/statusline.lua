@@ -2,8 +2,8 @@ local lualine = require 'lualine'
 
 -- Color table for highlights
 local colors = {
-  bg = '#202328',
-  fg = '#bbc2cf',
+  bg = '#191919',
+  fg = '#eeeeee',
   yellow = '#ECBE7B',
   cyan = '#008080',
   darkblue = '#081633',
@@ -72,7 +72,7 @@ end
 
 ins_left {
   function() return '▊' end,
-  color = {fg = colors.blue}, -- Sets highlighting of component
+  color = {fg = colors.yellow}, -- Sets highlighting of component
   left_padding = 0 -- We don't need space before this
 }
 
@@ -81,12 +81,12 @@ ins_left {
   function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.red,
+      n = colors.fg,
       i = colors.green,
       v = colors.blue,
       [''] = colors.blue,
       V = colors.blue,
-      c = colors.magenta,
+      c = colors.fg,
       no = colors.red,
       s = colors.orange,
       S = colors.orange,
@@ -129,13 +129,14 @@ ins_left {
     if string.len(file) == 0 then return '' end
     return format_file_size(file)
   end,
-  condition = conditions.buffer_not_empty
+  condition = conditions.buffer_not_empty,
+  color = {fg = colors.fg}
 }
 
 ins_left {
   'filename',
   condition = conditions.buffer_not_empty,
-  color = {fg = colors.magenta, gui = 'bold'}
+  color = {fg = colors.yellow, gui = 'bold'}
 }
 
 ins_left {'location'}
@@ -170,7 +171,7 @@ ins_right {
     return msg
   end,
   icon = ' LSP:',
-  color = {fg = '#ffffff', gui = 'bold'}
+  color = {fg = colors.white, gui = 'bold'}
 }
 
 -- Add components to right sections
@@ -178,7 +179,7 @@ ins_right {
   'o:encoding', -- option component same as &encoding in viml
   upper = true, -- I'm not sure why it's upper case either ;)
   condition = conditions.hide_in_width,
-  color = {fg = colors.green, gui = 'bold'}
+  color = {fg = colors.white, gui = 'bold'}
 }
 
 
@@ -201,7 +202,7 @@ ins_right {
 
 ins_right {
   function() return '▊' end,
-  color = {fg = colors.blue},
+  color = {fg = colors.yellow},
   right_padding = 0
 }
 

@@ -52,7 +52,7 @@ lspconfig.ccls.setup {
   on_attach = on_attach,
   init_options = {
 	cache = {
-	  directory = ".ccls-cache";
+	  directory = ".cache";
 	};
   }
 }

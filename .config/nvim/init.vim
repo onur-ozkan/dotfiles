@@ -2,9 +2,6 @@ call plug#begin()
 	" Nimda
 	Plug 'ozkanonur/nimda-vim'
 
-	" Text surrounding
-	Plug 'tpope/vim-surround'
-
 	" Fzf
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
@@ -39,8 +36,6 @@ call plug#end()
 " Functions }
 
 " Mappings {
-	" surround selected gap
-	nmap = ysiw
 	" Open file explorer
 	nnoremap <silent> ` :NERDTreeToggle <CR>
 	" File search
@@ -97,6 +92,7 @@ call plug#end()
 " vim-ulluminate }
 
 " Settings {
+	set termguicolors
 	colorscheme nimda
 
 	set shortmess-=S
