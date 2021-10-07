@@ -71,7 +71,7 @@ local function ins_right(component)
 end
 
 ins_left {
-  function() return '▊' end,
+  function() return '' end,
   color = {fg = colors.yellow}, -- Sets highlighting of component
   left_padding = 0 -- We don't need space before this
 }
@@ -86,7 +86,7 @@ ins_left {
       v = colors.blue,
       [''] = colors.blue,
       V = colors.blue,
-      c = colors.fg,
+      c = colors.magenta,
       no = colors.red,
       s = colors.orange,
       S = colors.orange,
@@ -200,9 +200,9 @@ ins_right {
 }
 
 ins_right {
-  function() return '▊' end,
+  function() return '' end,
   color = {fg = colors.yellow},
-  right_padding = 0
+  right_padding = 1
 }
 
 lualine.setup(config)
