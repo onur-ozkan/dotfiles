@@ -30,15 +30,22 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
--- Custom diagnostic signs
+-- Diagnostic signs
 vim.fn.sign_define("LspDiagnosticsSignError",
-    {text = "", texthl = "GruvboxRed"})
+    {text = "", texthl = ""})
 vim.fn.sign_define("LspDiagnosticsSignWarning",
-    {text = "", texthl = "GruvboxYellow"})
+    {text = "", texthl = ""})
 vim.fn.sign_define("LspDiagnosticsSignInformation",
-    {text = "", texthl = "GruvboxBlue"})
+    {text = "", texthl = ""})
 vim.fn.sign_define("LspDiagnosticsSignHint",
-    {text = "", texthl = "GruvboxAqua"})
+    {text = "", texthl = ""})
+
+-- Diagnostic prefix
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = {
+    prefix = '■'
+  }
+})
 
 -- c/cpp
 lspconfig.ccls.setup {
