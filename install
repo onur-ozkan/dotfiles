@@ -8,7 +8,6 @@ mkdir -p ~/.local/bin/statusbar
 # zsh / bash
 cp .zshenv ~
 cp .zshrc ~
-cp .bash_profile ~
 
 # vim
 cp .vimrc ~
@@ -35,7 +34,7 @@ cp .dwm/* ~/.dwm
 cp -r .local/bin/* ~/.local/bin
 
 # config
-cp .config/* ~/.config
+cp -r .config/* ~/.config
 
 # wallpapers
 cp -R .backgrounds ~
