@@ -2,7 +2,7 @@ local lualine = require 'lualine'
 
 -- Color table for highlights
 local colors = {
-  bg = '#191919',
+  bg = 'default',
   fg = '#eeeeee',
   yellow = '#ECBE7B',
   cyan = '#008080',
@@ -103,8 +103,7 @@ ins_left {
       t = colors.red
     }
     vim.api.nvim_command(
-        'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
-            colors.bg)
+        'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..colors.bg)
     return ''
   end,
   color = "LualineMode",
