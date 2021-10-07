@@ -57,8 +57,10 @@ call plug#end()
 	noremap <silent> <S-Up> :resize +3<CR>
 	noremap <silent> <S-Down> :resize -3<CR>
 
-	" Paste mode toggling
-	set pastetoggle=<F2>
+	" Switch tabs easier
+	for i in range(1, 12)
+	  execute "nmap \<F".i."> ".i."gt"
+	endfor
 
 	" Commit message of the line
 	nmap <silent><Leader>g :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
