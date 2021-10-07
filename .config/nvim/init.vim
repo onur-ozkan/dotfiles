@@ -12,9 +12,6 @@ call plug#begin()
 	" File Explorer
 	Plug 'preservim/nerdtree'
 
-	" Statusline
-	Plug 'itchyny/lightline.vim'
-
 	" Vim Search
 	Plug 'eugen0329/vim-esearch'
 
@@ -29,6 +26,9 @@ call plug#begin()
 
 	" Completion Nvim
 	Plug 'nvim-lua/completion-nvim'
+
+	" Lualine
+	Plug 'hoob3rt/lualine.nvim'
 call plug#end()
 
 " Functions {
@@ -155,21 +155,10 @@ call plug#end()
 	imap <tab> <Plug>(completion_smart_tab)
 " Settings }
 
-" Lightline {
-	let g:lightline = {
-	      \ 'colorscheme': 'ayu_dark',
-	      \ 'active': {
-	      \   'left': [ [ 'mode', 'paste' ],
-	      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-	      \ },
-	      \ 'component_function': {
-	      \   'gitbranch': 'FugitiveHead'
-	      \ },
-	      \ }
-" Lightline }
-
 " vim-move }
 	let g:move_key_modifier = 'C'
 " vim-move }
 
 lua require('config/lsp')
+lua require('ui/statusline')
+
