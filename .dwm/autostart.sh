@@ -9,6 +9,4 @@ pactl set-sink-mute @DEFAULT_SINK@ true
 
 feh --bg-scale ~/.backgrounds/.black-and-white.jpg
 
-xcompmgr &
-
 dwmblocks &
