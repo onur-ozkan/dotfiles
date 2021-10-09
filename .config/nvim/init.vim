@@ -21,8 +21,9 @@ call plug#begin()
 	" Nvim LspConfig
 	Plug 'neovim/nvim-lspconfig'
 
-	" Completion Nvim
-	Plug 'nvim-lua/completion-nvim'
+	" Nvim Cmp
+	Plug 'hrsh7th/nvim-cmp'
+	Plug 'hrsh7th/cmp-nvim-lsp'
 
 	" Lualine
 	Plug 'hoob3rt/lualine.nvim'
@@ -137,20 +138,8 @@ call plug#end()
 	set mouse=a
 	set updatetime=1000
 
-
-	inoremap <Tab> "\<C-p>"
-
 	" Set completeopt to have a better completion experience
 	set completeopt=menuone,noinsert,noselect
-
-	" Avoid showing message extra message when using completion
-	set shortmess+=c
-
-	let g:completion_enable_auto_popup = 0
-	let g:completion_enable_auto_hover = 1
-	autocmd BufEnter * lua require'completion'.on_attach()
-
-	imap <tab> <Plug>(completion_smart_tab)
 " Settings }
 
 " vim-move }
