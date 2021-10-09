@@ -29,6 +29,7 @@ call plug#begin()
 	Plug 'hoob3rt/lualine.nvim'
 call plug#end()
 
+
 " Mappings {
 	" Open file explorer
 	nnoremap <silent> ` :NERDTreeToggle <CR>
