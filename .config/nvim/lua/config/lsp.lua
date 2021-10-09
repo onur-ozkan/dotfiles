@@ -72,6 +72,14 @@ local check_back_space = function()
     return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
 end
 
+local has_words_before = function()
+    if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+        return false
+    end
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 cmp.setup({
     completion = {
         autocomplete = false
@@ -80,15 +88,19 @@ cmp.setup({
         ['<Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            else
+            elseif has_words_before() then
                 cmp.complete()
+            else
+                fallback()
             end
         end,
         ['<S-Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            else
+            elseif has_words_before() then
                 cmp.complete()
+            else
+                fallback()
             end
         end
     },

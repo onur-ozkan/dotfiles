@@ -29,13 +29,6 @@ call plug#begin()
 	Plug 'hoob3rt/lualine.nvim'
 call plug#end()
 
-" Functions {
-	function TrimWhiteSpace()
-	  %s/\s*$//
-	  ''
-	endfunction
-" Functions }
-
 " Mappings {
 	" Open file explorer
 	nnoremap <silent> ` :NERDTreeToggle <CR>
@@ -45,8 +38,6 @@ call plug#end()
 	nnoremap <BS> :Windows <CR>
 	" Search in current file
 	nnoremap <C-f> :BLines <CR>
-	" Trim white spaces
-	nnoremap <F5> :call TrimWhiteSpace() <CR>
 	" Show commit history of current file
 	nnoremap <C-g> :BCommits <CR>
 	" Show available commands
