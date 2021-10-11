@@ -64,13 +64,14 @@ call plug#end()
 " Fzf }
 
 " NERDTree {
-	let NERDTreeIgnore = ['\.swp$', '\.swo$', '.git']
+	let NERDTreeIgnore = ['\.swp$', '\.swo$', '.git', '.cache']
 
 	" Open the existing NERDTree on each new tab.
 	autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 	" Close the tab if NERDTree is the only window remaining in it.
 	autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+	let g:NERDTreeStatusline = '%#NonText#'
 
 	let NERDTreeMinimalUI=1
 	let NERDTreeWinSize=50
