@@ -43,6 +43,8 @@ call plug#end()
 	nnoremap <C-g> :BCommits <CR>
 	" Show available commands
 	nnoremap <C-c> :Commands <CR>
+	" Copy to clipboard
+	vnoremap  <leader>y  "+y
 
 	" Window sizing
 	noremap <silent> <S-Left> :vertical resize +3<CR>
