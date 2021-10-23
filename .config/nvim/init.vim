@@ -133,6 +133,9 @@ call plug#end()
 	set mouse=a
 	set updatetime=1000
 
+	set ttyfast
+	set lazyredraw
+
 	" Set completeopt to have a better completion experience
 	set completeopt=menuone,noinsert,noselect
 " Settings }
