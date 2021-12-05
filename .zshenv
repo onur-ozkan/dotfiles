@@ -18,7 +18,7 @@ export PATH="$PATH:~$HOME/go/bin/"
 export GOPATH="$HOME/go"
 
 # defaults
-export EDITOR=vim
+export EDITOR=nvim
 export TERMINAL=st
 export FZF_DEFAULT_COMMAND='rg --hidden -l "" -g "!.git"'
 
