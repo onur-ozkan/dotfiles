@@ -1,6 +1,6 @@
 #!/bin/bash
 
-vol=$(pactl list sinks | tr ' ' '\n' | grep -m1 '%' | tr -d '%')
+vol=$(pactl list sinks | perl -000ne 'if(/#1/){/(Volume:.*)/; print "$1\n"}' | tr ' ' '\n' | grep -m1 '%' | tr -d '%')
 vol_status=$(pactl list sinks | grep 'Mute: yes')
 
 if [ -n "$vol_status" ]
