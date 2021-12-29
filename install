@@ -9,6 +9,9 @@ mkdir -p ~/.local/bin/statusbar
 cp .zshenv ~
 cp .zshrc ~
 
+# libinput
+sudo cp -f ./libinput/40-libinput.conf /usr/share/X11/xorg.conf.d/40-libinput.conf
+
 # vim-plug for nvim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
