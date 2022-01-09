@@ -113,7 +113,7 @@ cmp.setup({
     }},
     formatting = {
         format = function(entry, vim_item)
-            vim_item.menu = ({
+            vim_itemmenu = ({
                 nvim_lsp = "[LSP]",
                 buffer = "[BFR]",
                 path = "[PTH]"
@@ -135,12 +135,20 @@ vim.cmd [[
 
 -- c/cpp
 lspconfig.ccls.setup {
+	cmd = { 'ccls' },
     on_attach = on_attach,
     capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     init_options = {
         cache = {
             directory = ".cache"
         }
+    },
+	clang = {
+		excludeArgs = { "-frounding-math"},
+		extraArgs = { "--gcc-toolchain=/usr"}
+    },
+	default_config = {
+      root_dir = [[root_pattern("compile_commands.json", ".ccls", ".git")]]
     }
 }
 -- c/cpp
