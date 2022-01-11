@@ -5,6 +5,7 @@ Requirements
 - [dmenu-enhanced](https://github.com/ozkanonur/dmenu-enhanced)
 - [dwmblocks-enhanced](https://github.com/ozkanonur/dwmblocks-enhanced)
 - [slock-enhanced](https://github.com/ozkanonur/slock-enhanced)
+- [sbs](https://github.com/ozkanonur/sbs)
 - [ibhagwan/picom](https://github.com/ibhagwan/picom)
 - nnn (optional)
 - tmux (optional)
