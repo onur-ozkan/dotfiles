@@ -1,20 +1,20 @@
 #!/bin/sh
 
-cache_file=/home/nimda/.cache/.sbs
-backgrounds_dir=/home/nimda/.backgrounds
+cache_file=~/.cache/.sbs
+backgrounds_dir=~/.backgrounds
 
 if [ ! -e "$cache_file" ] ; then
     printf "NULL" > "$cache_file"
 fi
 
-current_bg=$(head -1 /home/nimda/.cache/.sbs)
-first_bg=$(ls -a -p /home/nimda/.backgrounds | grep -v / | head -1)
+current_bg=$(head -1 ~/.cache/.sbs)
+first_bg=$(ls -a -p ~/.backgrounds | grep -v / | head -1)
 
 if [ "$current_bg" == NULL ]
 then
 	sed -i "1s/^.*$/$first_bg/" $cache_file
 else
-	next_bg=$(ls -a -p /home/nimda/.backgrounds | grep -v / | grep -A1 $current_bg | tail -n 1)
+	next_bg=$(ls -a -p ~/.backgrounds | grep -v / | grep -A1 $current_bg | tail -n 1)
 	if [ "$current_bg" == "$next_bg" ]
 	then
 		sed -i "1s/^.*$/$first_bg/" $cache_file
@@ -23,4 +23,4 @@ else
 	fi
 fi
 
-sbs /home/nimda/.backgrounds/$current_bg
+sbs ~/.backgrounds/$current_bg
