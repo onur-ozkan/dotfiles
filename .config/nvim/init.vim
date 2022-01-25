@@ -66,7 +66,7 @@ call plug#end()
 " Fzf }
 
 " NERDTree {
-	let NERDTreeIgnore = ['\.swp$', '\.swo$', '.git', '.cache']
+	let NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$', '.cache', '\\~$']
 
 	" Open the existing NERDTree on each new tab.
 	autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
