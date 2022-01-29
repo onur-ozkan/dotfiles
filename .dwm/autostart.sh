@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # increase cursor speed
-xset r rate 250 45
+xset r rate 200 65
 
 # default configuration of audio on boot
 pactl set-sink-volume 0 50%
