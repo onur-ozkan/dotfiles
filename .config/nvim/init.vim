@@ -54,7 +54,7 @@ call plug#end()
 
 	" Switch tabs easier
 	for i in range(1, 12)
-	  execute "nmap \<F".i."> ".i."gt"
+	  execute "nmap ".i."T ".i."gt"
 	endfor
 
 	" Commit message of the line
