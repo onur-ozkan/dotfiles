@@ -2,6 +2,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 alias vim="nvim"
+alias sudo="doas"
 
 # bash scripts
 PATH="$HOME/.local/bin:$PATH"
