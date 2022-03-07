@@ -21,6 +21,9 @@ $ cd dotfiles
 $ ./install
 ```
 
+Warning
+--------------------
+If you are using `sudo`, you should comment out the `alias sudo="doas"` part in `.zshenv`.
 
 Screenshots
 --------------------
@@ -29,7 +32,6 @@ Screenshots
 ![2021-09-27_18-27](https://user-images.githubusercontent.com/39852038/134938647-70de064d-030f-449e-a767-9152391b460d.png)
 ![2021-09-27_17-47](https://user-images.githubusercontent.com/39852038/134932367-7913970c-bf81-4bd2-a699-55c15ce9f7d3.png)
 ![2021-09-27_18-07](https://user-images.githubusercontent.com/39852038/134935476-3db61008-9e6d-49c9-af75-e349ef1d9ff8.png)
-
 
 
 Related article: https://onurozkan.dev/posts/reasons-that-i-left-gnome-and-kde
