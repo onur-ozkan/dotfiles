@@ -10,7 +10,7 @@ cp .zshenv ~
 cp .zshrc ~
 
 # libinput
-sudo cp -f ./libinput/40-libinput.conf /usr/share/X11/xorg.conf.d/40-libinput.conf
+doas cp -f ./libinput/40-libinput.conf /usr/share/X11/xorg.conf.d/40-libinput.conf
 
 # vim-plug for nvim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -31,7 +31,7 @@ cp -r .local/bin/* ~/.local/bin
 
 # config
 cp -r .config/* ~/.config
-cp -r /etc ~/etc/doas.conf
+doas cp -r /etc ~/etc/doas.conf
 
 # wallpapers
 cp -R .backgrounds ~
