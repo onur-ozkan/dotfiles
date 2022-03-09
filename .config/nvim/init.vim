@@ -92,6 +92,8 @@ call plug#end()
 " Settings {
 	set termguicolors
 	colorscheme nimda
+
+	set showtabline=2
 	set tabline=%!DisplayTabId()
 
 	set shortmess-=S
@@ -145,7 +147,7 @@ call plug#end()
 	let g:move_key_modifier = 'C'
 " vim-move }
 
-" functions }
+" Functions }
 	function! DisplayTabId()
 		let s = ''
 		for i in range(tabpagenr('$'))
@@ -171,7 +173,7 @@ call plug#end()
 		endif
 		return s
 	endfunction
-" functions }
+" Functions }
 
 lua require('config/lsp')
 lua require('ui/statusline')
