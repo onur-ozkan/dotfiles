@@ -7,6 +7,6 @@ xset r rate 200 65
 pactl set-sink-volume 0 50%
 pactl set-sink-mute @DEFAULT_SINK@ true
 
-feh --bg-scale ~/.backgrounds/.black-and-white.jpg
+sbs ~/.backgrounds/.firewatch-dark.jpg
 
 dwmblocks &
