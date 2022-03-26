@@ -2,7 +2,7 @@ call plug#begin()
 	" Nimda
 	Plug 'ozkanonur/nimda-vim'
 
-	" Fzf
+	" Telescope
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 
