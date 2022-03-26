@@ -3,8 +3,8 @@ call plug#begin()
 	Plug 'ozkanonur/nimda-vim'
 
 	" Fzf
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
 
 	" File Explorer
 	Plug 'preservim/nerdtree'
@@ -34,15 +34,15 @@ call plug#end()
 	" Open file explorer
 	nnoremap <silent> ` :NERDTreeToggle <CR>
 	" File search
-	nnoremap <silent> <space>` :Files <CR>
-	" Show open tabs
-	nnoremap <BS> :Windows <CR>
-	" Search in current file
-	nnoremap <C-f> :BLines <CR>
-	" Show commit history of current file
-	nnoremap <C-g> :BCommits <CR>
-	" Show available commands
-	nnoremap <C-c> :Commands <CR>
+	nnoremap <silent> <space>` :Telescope find_files <CR>
+	" Display git status
+	nnoremap <BS> :Telescope git_status <CR>
+	" Grep for string that is under the cursor
+	nnoremap <C-n> :Telescope grep_string <CR>
+	" Grep in whole workspace
+	nnoremap <C-f> :Telescope live_grep <CR>
+	" Lists git commits with diff preview, checkout action <cr>, reset mixed <C-r>m, reset soft <C-r>s and reset hard <C-r>h
+	nnoremap <C-g> :Telescope git_commits <CR>
 	" Copy to clipboard
 	vnoremap  <leader>y  "+y
 
@@ -56,14 +56,7 @@ call plug#end()
 	for i in range(1, 12)
 	  execute "nmap ".i."T ".i."gt"
 	endfor
-
-	" Commit message of the line
-	nmap <silent><Leader>g :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
 " Mappings }
-
-" Fzf {
-	set rtp+=~/.fzf
-" Fzf }
 
 " NERDTree {
 	let NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$', '.cache', '\~$']
