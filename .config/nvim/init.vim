@@ -12,12 +12,6 @@ call plug#begin()
 	" Vim Search
 	Plug 'eugen0329/vim-esearch'
 
-	" Illuminate
-	Plug 'RRethy/vim-illuminate'
-
-	" Vim Move
-	Plug 'matze/vim-move'
-
 	" Nvim LspConfig
 	Plug 'neovim/nvim-lspconfig'
 
@@ -28,7 +22,6 @@ call plug#begin()
 	" Lualine
 	Plug 'hoob3rt/lualine.nvim'
 call plug#end()
-
 
 " Mappings {
 	" Open file explorer
@@ -51,6 +44,12 @@ call plug#end()
 	noremap <silent> <S-Right> :vertical resize -3<CR>
 	noremap <silent> <S-Up> :resize +3<CR>
 	noremap <silent> <S-Down> :resize -3<CR>
+
+	" move lines
+	nnoremap <C-j> :m .+1<CR>==
+	nnoremap <C-k> :m .-2<CR>==
+	vnoremap <C-j> :m '>+1<CR>gv=gv
+	vnoremap <C-k> :m '<-2<CR>gv=gv
 
 	" Switch tabs easier
 	for i in range(1, 12)
@@ -136,10 +135,6 @@ call plug#end()
 	set completeopt=menuone,noinsert,noselect
 " Settings }
 
-" vim-move }
-	let g:move_key_modifier = 'C'
-" vim-move }
-
 " Functions }
 	function! DisplayTabId()
 		let s = ''
@@ -170,4 +165,3 @@ call plug#end()
 
 lua require('config/lsp')
 lua require('ui/statusline')
-
