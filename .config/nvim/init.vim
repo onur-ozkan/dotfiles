@@ -19,6 +19,9 @@ call plug#begin()
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 
+	" Treesitter
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 	" Lualine
 	Plug 'hoob3rt/lualine.nvim'
 call plug#end()
@@ -163,5 +166,6 @@ call plug#end()
 	endfunction
 " Functions }
 
-lua require('config/lsp')
-lua require('ui/statusline')
+lua require('./cfg_lsp')
+lua require('./cfg_treesitter')
+lua require('./cfg_lualine')
