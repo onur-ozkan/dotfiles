@@ -8,7 +8,7 @@ require'nvim-tree'.setup {
 	ignore_buffer_on_setup = false,
 	open_on_setup = false,
 	open_on_setup_file = false,
-	open_on_tab = true,
+	open_on_tab = false,
 	sort_by = "name",
 	update_cwd = true,
 	view = {
