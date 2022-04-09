@@ -6,8 +6,8 @@ call plug#begin()
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 
-	" File Explorer
-	Plug 'preservim/nerdtree'
+	" Nvim Tree
+	Plug 'kyazdani42/nvim-tree.lua'
 
 	" Vim Search
 	Plug 'eugen0329/vim-esearch'
@@ -28,7 +28,7 @@ call plug#end()
 
 " Mappings {
 	" Open file explorer
-	nnoremap <silent> ` :NERDTreeToggle <CR>
+	nnoremap <silent> ` :NvimTreeToggle <CR>
 	" File search
 	nnoremap <silent> <space>` :Telescope find_files <CR>
 	" Display git status
@@ -59,23 +59,6 @@ call plug#end()
 	  execute "nmap ".i."T ".i."gt"
 	endfor
 " Mappings }
-
-" NERDTree {
-	let NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$', '.cache', '\~$']
-
-	" Open the existing NERDTree on each new tab.
-	autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-	" Close the tab if NERDTree is the only window remaining in it.
-	autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-	let g:NERDTreeStatusline = '%#NonText#'
-
-	let NERDTreeMinimalUI=1
-	let NERDTreeWinSize=50
-	let NERDTreeWinPos=1
-	let NERDTreeShowHidden=1
-	let NERDTreeQuitOnOpen=1
-" NERDTree }
 
 " vim-illuminate {
 	augroup illuminate_augroup
@@ -166,6 +149,7 @@ call plug#end()
 	endfunction
 " Functions }
 
+lua require('./cfg_lualine')
+lua require('./cfg_nvimtree')
 lua require('./cfg_lsp')
 lua require('./cfg_treesitter')
-lua require('./cfg_lualine')
