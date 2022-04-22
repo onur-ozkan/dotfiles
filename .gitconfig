@@ -1,0 +1,12 @@
+[init]
+	defaultBranch = stable
+
+[core]
+	editor = vim
+
+[commit]
+	verbose = true
+
+[user]
+	email = work@onurozkan.dev
+	name = ozkanonur
