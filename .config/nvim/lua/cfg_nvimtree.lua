@@ -1,7 +1,6 @@
 require'nvim-tree'.setup {
 	auto_reload_on_write = true,
 	disable_netrw = true,
-	hide_root_folder = false,
 	hijack_cursor = false,
 	hijack_netrw = true,
 	hijack_unnamed_buffer_when_opening = false,
@@ -97,6 +96,32 @@ require'nvim-tree'.setup {
 		ignore = true,
 		timeout = 400,
 	},
+	renderer = {
+		icons = {
+			glyphs = {
+				default = "",
+				symlink = "",
+				git = {
+					unstaged = "",
+					staged = "",
+					unmerged = "",
+					renamed = "",
+					deleted = "",
+					untracked = "",
+					ignored = "",
+				},
+				folder = {
+					-- arrow_open = "",
+					-- arrow_closed = "",
+					default = "",
+					open = "",
+					empty = "",
+					empty_open = "",
+					symlink = "",
+				}
+			}
+		}
+	},
 	actions = {
 		change_dir = {
 			enable = true,
@@ -134,25 +159,3 @@ require'nvim-tree'.setup {
 
 vim.opt.splitright = false
 
-vim.g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
-	git = {
-		unstaged = "",
-		staged = "",
-		unmerged = "",
-		renamed = "",
-		deleted = "",
-		untracked = "",
-		ignored = "",
-	},
-	folder = {
-	-- arrow_open = "",
-	-- arrow_closed = "",
-		default = "",
-		open = "",
-		empty = "",
-		empty_open = "",
-		symlink = "",
-	},
-}
