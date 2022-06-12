@@ -21,6 +21,7 @@ export PATH="$PATH:~$HOME/go/bin/"
 export GOPATH="$HOME/go"
 
 # defaults
+export TERM=screen-256color
 export EDITOR=nvim
 export TERMINAL=st
 export FZF_DEFAULT_COMMAND='rg --hidden -l "" -g "!.git"'
