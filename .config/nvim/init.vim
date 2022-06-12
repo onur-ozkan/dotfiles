@@ -27,6 +27,8 @@ call plug#begin()
 call plug#end()
 
 " Mappings {
+	" Back to previously opened window
+	nnoremap <S-h> <C-6> <CR>
 	" Open file explorer
 	nnoremap <silent> ` :NvimTreeToggle <CR>
 	" File search
