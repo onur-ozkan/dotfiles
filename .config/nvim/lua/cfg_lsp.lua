@@ -153,15 +153,12 @@ lspconfig.ccls.setup {
 }
 -- c/cpp
 
--- cpound
-local pid = vim.fn.getpid()
-local omnisharp_bin = os.getenv("OMNISHARP_ROSLYN")
-lspconfig.omnisharp.setup {
+-- rust
+lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
-    capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)}
+    capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
--- cpound
+-- rust
 
 -- golang
 lspconfig.gopls.setup {
@@ -177,9 +174,12 @@ lspconfig.pyright.setup {
 }
 -- python
 
--- rust
-lspconfig.rust_analyzer.setup {
-    on_attach = on_attach,
-    capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
--- rust
+-- cpound
+-- local pid = vim.fn.getpid()
+-- local omnisharp_bin = os.getenv("OMNISHARP_ROSLYN")
+-- lspconfig.omnisharp.setup {
+--    on_attach = on_attach,
+--    capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+--    cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)}
+-- }
+-- cpound
