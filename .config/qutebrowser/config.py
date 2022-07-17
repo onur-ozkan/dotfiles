@@ -204,7 +204,7 @@ def init(c, options = {}):
     c.colors.statusbar.private.fg = palette['dirty-white']
 
     ## Background color of the progress bar.
-    c.colors.statusbar.progress.bg = palette['dark-0']
+    c.colors.statusbar.progress.bg = palette['green']
 
     ## Foreground color of the URL in the statusbar on error.
     c.colors.statusbar.url.error.fg = palette['red-1']
@@ -233,11 +233,11 @@ def init(c, options = {}):
 
     ## Background color of unselected even tabs.
     ## Type: QtColor
-    c.colors.tabs.even.bg = palette['gray-0']
+    c.colors.tabs.even.bg = palette['gray-1']
 
     ## Foreground color of unselected even tabs.
     ## Type: QtColor
-    c.colors.tabs.even.fg = palette['white']
+    c.colors.tabs.even.fg = palette['dirty-white']
 
     ## Color for the tab indicator on errors.
     ## Type: QtColor
@@ -262,11 +262,11 @@ def init(c, options = {}):
 
     ## Background color of unselected odd tabs.
     ## Type: QtColor
-    c.colors.tabs.odd.bg = palette['gray-0']
+    c.colors.tabs.odd.bg = palette['gray-1']
 
     ## Foreground color of unselected odd tabs.
     ## Type: QtColor
-    c.colors.tabs.odd.fg = palette['white']
+    c.colors.tabs.odd.fg = palette['dirty-white']
 
     # ## Background color of selected even tabs.
     # ## Type: QtColor
@@ -274,7 +274,7 @@ def init(c, options = {}):
 
     # ## Foreground color of selected even tabs.
     # ## Type: QtColor
-    c.colors.tabs.selected.even.fg = palette['white']
+    c.colors.tabs.selected.even.fg = palette['dirty-white']
 
     # ## Background color of selected odd tabs.
     # ## Type: QtColor
@@ -282,7 +282,7 @@ def init(c, options = {}):
 
     # ## Foreground color of selected odd tabs.
     # ## Type: QtColor
-    c.colors.tabs.selected.odd.fg = palette['white']
+    c.colors.tabs.selected.odd.fg = palette['dirty-white']
 
     ## Tab padding
     c.tabs.padding = padding
@@ -298,4 +298,3 @@ init(c, {
         'horizontal': 8
     }
 })
-
