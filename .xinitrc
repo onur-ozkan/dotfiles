@@ -5,8 +5,10 @@ xrdb -load ~/.Xresources
 # xcompmgr -CcfF -I-.015 -O-.03 -D2 -t-1 -l-3 -r4.2 -o.5 &
 picom -b
 
+# Override XDG_RUNTIME_DIR
+#export XDG_RUNTIME_DIR=/home/nimda/.xdg-override
+
 # Audio
-export XDG_RUNTIME_DIR=/home/nimda/.xdg-override
 pipewire &
 pipewire-pulse &
 pipewire-media-session &
