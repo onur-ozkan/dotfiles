@@ -4,6 +4,7 @@
 mkdir -p ~/.config
 mkdir -p ~/.dwm
 mkdir -p ~/.local/bin/statusbar
+sudo mkdir -p /usr/share/X11/xorg.conf.d/
 
 # zsh / bash
 cp .zshenv ~
