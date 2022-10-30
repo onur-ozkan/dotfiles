@@ -31,7 +31,7 @@ cp -r .local/bin/* ~/.local/bin
 
 # config
 cp -r .config/* ~/.config
-sudo cp -r /etc ~/etc/doas.conf
+sudo cp ./etc/doas.conf /etc 
 
 # wallpapers
 cp -R .backgrounds ~
