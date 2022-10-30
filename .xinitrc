@@ -6,7 +6,7 @@ xrdb -load ~/.Xresources
 picom -b
 
 # Override XDG_RUNTIME_DIR
-#export XDG_RUNTIME_DIR=/home/nimda/.xdg-override
+# export XDG_RUNTIME_DIR=/home/nimda/.xdg-override
 
 # Audio
 pipewire &
