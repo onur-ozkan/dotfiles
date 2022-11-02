@@ -27,8 +27,7 @@ If you are using `sudo`, you should comment out the `alias sudo="doas"` part in 
 
 Screenshots
 --------------------
-![2022-10-31_18-07](https://user-images.githubusercontent.com/39852038/199041587-1fdb2531-5be9-4578-a91a-739e564b59c5.png)
-
+![2022-11-01_21-47](https://user-images.githubusercontent.com/39852038/199428616-485f2345-d118-4124-9a52-08085feff56e.png)
 
 
 Related article: https://onurozkan.dev/posts/reasons-that-i-left-gnome-and-kde
