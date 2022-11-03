@@ -24,6 +24,9 @@ cp .xinitrc ~
 # tmux
 cp .tmux.conf ~
 
+# gitconfig
+cp .gitconfig ~
+
 # dwm
 cp .dwm/* ~/.dwm
 
