@@ -4,14 +4,14 @@
 mkdir -p ~/.config
 mkdir -p ~/.dwm
 mkdir -p ~/.local/bin/statusbar
-sudo mkdir -p /usr/share/X11/xorg.conf.d/
+doas mkdir -p /usr/share/X11/xorg.conf.d/
 
 # zsh / bash
 cp .zshenv ~
 cp .zshrc ~
 
 # libinput
-sudo cp -f ./libinput/40-libinput.conf /usr/share/X11/xorg.conf.d/40-libinput.conf
+doas cp -f ./libinput/40-libinput.conf /usr/share/X11/xorg.conf.d/40-libinput.conf
 
 # vim-plug for nvim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
