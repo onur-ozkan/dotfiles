@@ -24,11 +24,14 @@ cp .xinitrc ~
 # tmux
 cp .tmux.conf ~
 
+# dwm
+cp .dwm/* ~/.dwm
+
 # gitconfig
 cp .gitconfig ~
 
-# dwm
-cp .dwm/* ~/.dwm
+# dircolors
+cp .dircolors ~
 
 # scripts
 cp -r .local/bin/* ~/.local/bin
