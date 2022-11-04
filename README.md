@@ -6,7 +6,7 @@ Requirements
 - [dwmblocks-enhanced](https://github.com/ozkanonur/dwmblocks-enhanced)
 - [slock-enhanced](https://github.com/ozkanonur/slock-enhanced)
 - [sbs](https://github.com/ozkanonur/sbs)
-- [ibhagwan/picom](https://github.com/ibhagwan/picom)
+- [ozkanonur-backups/picom](https://github.com/ozkanonur-backups/picom)
 - nnn (optional)
 - tmux (optional)
 - nvim (optional)

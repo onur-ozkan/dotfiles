@@ -1,29 +1,29 @@
 call plug#begin()
 	" Nimda
-	Plug 'vim-keeper/nimda.vim'
+	Plug 'ozkanonur-backups/nimda.vim'
 
 	" Telescope
-	Plug 'vim-keeper/plenary.nvim'
-	Plug 'vim-keeper/telescope.nvim'
+	Plug 'ozkanonur-backups/plenary.nvim'
+	Plug 'ozkanonur-backups/telescope.nvim'
 
 	" Nvim Tree
-	Plug 'vim-keeper/nvim-tree.lua'
+	Plug 'ozkanonur-backups/nvim-tree.lua'
 
 	" Vim Search
-	Plug 'vim-keeper/vim-esearch'
+	Plug 'ozkanonur-backups/vim-esearch'
 
 	" Nvim LspConfig
-	Plug 'vim-keeper/nvim-lspconfig'
+	Plug 'ozkanonur-backups/nvim-lspconfig'
 
 	" Nvim Cmp
-	Plug 'vim-keeper/nvim-cmp'
-	Plug 'vim-keeper/cmp-nvim-lsp'
+	Plug 'ozkanonur-backups/nvim-cmp'
+	Plug 'ozkanonur-backups/cmp-nvim-lsp'
 
 	" Treesitter
-	Plug 'vim-keeper/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'ozkanonur-backups/nvim-treesitter', {'do': ':TSUpdate'}
 
 	" Lualine
-	Plug 'vim-keeper/lualine.nvim'
+	Plug 'ozkanonur-backups/lualine.nvim'
 call plug#end()
 
 " Mappings {
