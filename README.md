@@ -9,8 +9,7 @@ Requirements
 - [ibhagwan/picom](https://github.com/ibhagwan/picom)
 - nnn (optional)
 - tmux (optional)
-- nvim   (optional)
-- tilda (optional)
+- nvim (optional)
 
 
 Installation
