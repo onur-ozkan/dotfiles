@@ -38,7 +38,10 @@ cp -r .local/bin/* ~/.local/bin
 
 # config
 cp -r .config/* ~/.config
-sudo cp ./etc/doas.conf /etc 
+doas cp ./etc/doas.conf /etc 
+
+# ignore sudo
+doas cp -r ./etc/xbps.d /etc
 
 # wallpapers
 cp -R .backgrounds ~
