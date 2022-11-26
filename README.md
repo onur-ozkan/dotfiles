@@ -26,7 +26,9 @@ If you are using `sudo`, you should create an alias `alias doas="sudo"` before r
 
 Screenshots
 --------------------
-![2022-11-02_17-22](https://user-images.githubusercontent.com/39852038/199437304-a20f4eba-76ce-4228-9025-68ace924c0b9.png)
+![2022-11-26_10-18](https://user-images.githubusercontent.com/39852038/204077157-3cd10cb0-acbf-4e30-bac5-7de64d68d5e0.png)
+
+
 
 
 Related article: https://onurozkan.dev/posts/reasons-that-i-left-gnome-and-kde
