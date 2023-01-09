@@ -17,7 +17,7 @@ PATH="/snap/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 
 # golang
-export PATH="$PATH:~$HOME/go/bin/"
+export PATH="$PATH:$HOME/go/bin/"
 export GOPATH="$HOME/go"
 
 # defaults
