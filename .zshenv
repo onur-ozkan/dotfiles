@@ -23,10 +23,5 @@ export EDITOR=nvim
 export TERMINAL=st
 export FZF_DEFAULT_COMMAND='rg --hidden -l "" -g "!.git"'
 
-# nnn
-export NNN_PLUG='p:preview-tui;f:fzopen'
-export NNN_FIFO=/tmp/nnn.fifo
-export NNN_OPTS="H"
-
 # Enable drm for qutebrowser
 export QTWEBENGINE_CHROMIUM_FLAGS=--widevine-path=/usr/lib/chromium/libwidevinecdm.so
