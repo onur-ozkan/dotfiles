@@ -10,9 +10,6 @@ PATH="$HOME/.local/bin:$PATH"
 # dwmblock scripts
 PATH="$HOME/.local/bin/statusbar:$PATH"
 
-# snap
-PATH="/snap/bin:$PATH"
-
 # rust
 PATH="$HOME/.cargo/bin:$PATH"
 
@@ -31,8 +28,5 @@ export NNN_PLUG='p:preview-tui;f:fzopen'
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_OPTS="H"
 
-# Intellij apps
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# omnisharp
-export OMNISHARP_ROSLYN="$HOME/.omnisharp/run"
+# Enable drm for qutebrowser
+export QTWEBENGINE_CHROMIUM_FLAGS=--widevine-path=/usr/lib/chromium/libwidevinecdm.so
