@@ -1,0 +1,4 @@
+#!/bin/sh
+
+doas ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+doas /bin/hwclock -s
