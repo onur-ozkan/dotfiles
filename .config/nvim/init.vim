@@ -121,6 +121,11 @@ call plug#end()
 
 	" Set completeopt to have a better completion experience
 	set completeopt=menuone,noinsert,noselect
+
+	let g:loaded_python_provider = 0
+	let g:loaded_node_provider = 0
+	let g:loaded_perl_provider = 0
+	let g:loaded_ruby_provider = 0
 " Settings }
 
 " Functions }
