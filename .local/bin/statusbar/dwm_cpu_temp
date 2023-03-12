@@ -1,6 +1,6 @@
 #!/bin/bash
 
 icon=""
-temp=$(echo "scale=0; $(sort -nr /sys/class/thermal/thermal_zone*/temp | head -n1) / 1000" | bc)
+temp=$(sensors | awk '/CPU/ {print $2+0}')
 
 printf "$icon ^c#f7ca88^$((temp))^c#d75f5f^°C^d^"
