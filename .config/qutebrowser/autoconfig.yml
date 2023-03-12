@@ -6,6 +6,8 @@
 
 config_version: 2
 settings:
+  content.javascript.can_access_clipboard:
+    global: true
   statusbar.show:
     global: always
   tabs.show:
