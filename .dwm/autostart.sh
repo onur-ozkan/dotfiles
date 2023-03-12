@@ -3,10 +3,11 @@
 # increase cursor speed
 xset r rate 200 65
 
-# default configuration of audio on boot
-pactl set-sink-volume 0 50%
-pactl set-sink-mute @DEFAULT_SINK@ true
-
 sbs ~/.backgrounds/.firewatch-dark.jpg
 
 dwmblocks &
+
+sleep 4
+
+# Trigger volume on dwmblokcs
+kill -44 $(pidof dwmblocks)
