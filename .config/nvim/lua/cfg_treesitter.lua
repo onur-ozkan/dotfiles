@@ -20,6 +20,6 @@ require 'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
-    disable = {"c", "rust", "go", "c_sharp", "python" }
+    disable = {"c", "rust", "go", "python" }
   }
 }

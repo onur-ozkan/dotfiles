@@ -173,13 +173,3 @@ lspconfig.pyright.setup {
     capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 -- python
-
--- cpound
--- local pid = vim.fn.getpid()
--- local omnisharp_bin = os.getenv("OMNISHARP_ROSLYN")
--- lspconfig.omnisharp.setup {
---    on_attach = on_attach,
---    capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
---    cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)}
--- }
--- cpound
