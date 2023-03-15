@@ -1,4 +1,4 @@
 #!/bin/sh
 
 doas ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
-doas chronyc makestep
+doas sv up chronyd
