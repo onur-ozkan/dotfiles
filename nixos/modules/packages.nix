@@ -26,6 +26,7 @@
     go
     htop
     inotify-tools
+    kicad
     mreply
     pciutils
     perf
