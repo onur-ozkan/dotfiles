@@ -1,4 +1,40 @@
+local nvim_api = require 'nvim-tree.api'
+local multisearch = require 'cfg_multisearch'
+
+local ignored_paths = vim.tbl_map(function(path)
+    return '^' .. vim.pesc(path) .. '$'
+end, multisearch.config.ignored_paths)
+
+local function on_attach(bufnr)
+    nvim_api.map.on_attach.default(bufnr)
+
+    local opts = { buffer = bufnr, noremap = true, silent = true }
+
+    vim.keymap.set('n', '<C-Right>', function()
+        require('cfg_multisearch').switch_from_tree('Grep')
+    end, opts)
+    vim.keymap.set('n', '<C-Left>', function()
+        require('cfg_multisearch').switch_from_tree('Commits')
+    end, opts)
+    vim.keymap.set('n', '<C-Down>', function()
+        require('cfg_multisearch').focus_down_from_tree()
+    end, opts)
+    vim.keymap.set('n', '<C-Up>', function()
+        require('cfg_multisearch').focus_up_from_tree()
+    end, opts)
+    vim.keymap.set('n', '<CR>', function()
+        local node = nvim_api.tree.get_node_under_cursor()
+        nvim_api.node.open.no_window_picker(node)
+        if node and node.type == 'file' then
+            vim.schedule(function()
+                require('cfg_multisearch').close()
+            end)
+        end
+    end, opts)
+end
+
 require'nvim-tree'.setup {
+	on_attach = on_attach,
 	auto_reload_on_write = true,
 	disable_netrw = true,
 	hijack_cursor = false,
@@ -12,6 +48,9 @@ require'nvim-tree'.setup {
 		number = true,
 		relativenumber = true,
 		signcolumn = "yes",
+		float = {
+			enable = false,
+		},
 	},
 	hijack_directories = {
 		enable = false,
@@ -33,12 +72,12 @@ require'nvim-tree'.setup {
 	},
 	filters = {
 		dotfiles = false,
-		custom = {},
+		custom = ignored_paths,
 		exclude = {},
 	},
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false,
 		timeout = 400,
 	},
 	renderer = {
@@ -76,7 +115,7 @@ require'nvim-tree'.setup {
 			quit_on_open = true,
 			resize_window = true,
 			window_picker = {
-				enable = true,
+				enable = false,
 				chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
 				exclude = {
 					filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },

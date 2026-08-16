@@ -6,12 +6,13 @@ local function setup()
     -- Jump back to the last buffer.
     map('n', '<S-h>', '<C-6><CR>')
 
-    map('n', '`', '<Cmd>NvimTreeToggle<CR>', { silent = true })
-    map('n', '<space>`', '<Cmd>Telescope find_files<CR>', { silent = true })
     map('n', '<BS>', '<Cmd>Telescope git_status<CR>')
-    map('n', '<C-g>', '<Cmd>Telescope git_commits<CR>')
-    map('n', '<C-n>', '<Cmd>Telescope grep_string<CR>')
-    map('n', '<C-f>', '<Cmd>Telescope live_grep<CR>')
+    map('n', '<C-f>', function()
+        require('cfg_multisearch').open('Files')
+    end, {
+        silent = true,
+        desc = 'Open Multisearch Files',
+    })
 
     map('n', '<C-l>', '<Cmd>GitLineInfo<CR>')
 
