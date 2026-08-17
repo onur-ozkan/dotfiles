@@ -23,6 +23,9 @@ local state = {
     preview_id = 0,
     setting_prompt = false,
     file_root = nil,
+    file_index = nil,
+    file_search_timer = nil,
+    tabpage = nil,
 }
 
 local augroup = vim.api.nvim_create_augroup('Multisearch', { clear = true })
@@ -201,12 +204,20 @@ local function clear_content_keymaps(bufnr)
             pcall(vim.keymap.del, mode, lhs, { buffer = bufnr })
         end
     end
+    pcall(vim.keymap.del, 'n', '<Esc>', { buffer = bufnr })
 end
 
 local function close_content()
     if state.content_buf and vim.api.nvim_buf_is_valid(state.content_buf)
         and nvim_api.tree.is_tree_buf(state.content_buf) then
+        local current_tabpage = vim.api.nvim_get_current_tabpage()
+        if state.tabpage and vim.api.nvim_tabpage_is_valid(state.tabpage) and current_tabpage ~= state.tabpage then
+            vim.api.nvim_set_current_tabpage(state.tabpage)
+        end
         nvim_api.tree.close_in_this_tab()
+        if vim.api.nvim_tabpage_is_valid(current_tabpage) and vim.api.nvim_get_current_tabpage() ~= current_tabpage then
+            vim.api.nvim_set_current_tabpage(current_tabpage)
+        end
     else
         clear_content_keymaps(state.content_buf)
         close_win(state.content_win)
@@ -228,6 +239,13 @@ local function close_surface()
     state.wins = {}
     state.bufs = {}
     state.results = {}
+    if state.file_search_timer then
+        state.file_search_timer:stop()
+        state.file_search_timer:close()
+        state.file_search_timer = nil
+    end
+    state.file_index = nil
+    state.tabpage = nil
     state.active = false
     state.closing = false
 end
@@ -262,6 +280,7 @@ end
 local function install_content_mappings(bufnr)
     clear_content_keymaps(bufnr)
     install_surface_mappings(bufnr, 'content')
+    vim.keymap.set('n', '<Esc>', close_surface, { buffer = bufnr, noremap = true, silent = true })
 end
 
 local function show_text_preview(result)
@@ -309,29 +328,18 @@ local function show_commit_preview(result)
     end)
 end
 
-local function refresh_files()
-    if not valid(state.content_win) then
-        return
-    end
-    local query = state.queries.Files
-    if query == '' then
-        nvim_api.tree.change_root(state.file_root)
-        return
-    end
-
-    -- Find paths, then reveal the best match in NvimTree.
-    local needle = query:lower()
+local function build_file_index()
     local ignored = {}
     for _, path in ipairs(M.config.ignored_paths) do
         ignored[path] = true
     end
-    local matches = {}
+    local index = {}
     local function scan(directory)
         local handle = vim.uv.fs_scandir(directory)
         if not handle then
             return
         end
-        while #matches < 100 do
+        while true do
             local name, type = vim.uv.fs_scandir_next(handle)
             if not name then
                 break
@@ -339,9 +347,7 @@ local function refresh_files()
             if not ignored[name] then
                 local path = vim.fs.joinpath(directory, name)
                 local relative = vim.fs.relpath(state.file_root, path) or name
-                if relative:lower():find(needle, 1, true) then
-                    table.insert(matches, path)
-                end
+                table.insert(index, { path = path, relative = relative:lower(), type = type })
                 if type == 'directory' then
                     scan(path)
                 end
@@ -349,30 +355,68 @@ local function refresh_files()
         end
     end
     scan(state.file_root)
+    state.file_index = index
+end
+
+local function refresh_files_now()
+    if not state.active or state.view ~= 'Files' or not valid(state.content_win) then
+        return
+    end
+
+    if not state.file_index then
+        build_file_index()
+    end
+
+    local needle = state.queries.Files:lower()
+    local matches = {}
+    for _, entry in ipairs(state.file_index) do
+        if entry.relative:find(needle, 1, true) then
+            table.insert(matches, entry)
+            if #matches == 100 then
+                break
+            end
+        end
+    end
 
     if #matches == 0 then
-        vim.notify('No files or directories match: ' .. query, vim.log.levels.INFO)
+        vim.notify('No files or directories match: ' .. state.queries.Files, vim.log.levels.INFO)
         return
     end
 
     local match = matches[1]
     for _, candidate in ipairs(matches) do
-        local relative = vim.fs.relpath(state.file_root, candidate) or ''
-        local stat = vim.uv.fs_stat(candidate)
-        if relative:lower() == needle and stat and stat.type == 'directory' then
+        if candidate.relative == needle and candidate.type == 'directory' then
             match = candidate
             break
         end
     end
 
-    local stat = vim.uv.fs_stat(match)
-    local root = stat and stat.type == 'directory' and match or vim.fs.dirname(match)
+    local root = match.type == 'directory' and match.path or vim.fs.dirname(match.path)
     nvim_api.tree.change_root(root)
-    if stat and stat.type == 'directory' then
+    if match.type == 'directory' then
         nvim_api.tree.expand_all()
     else
-        nvim_api.tree.find_file({ buf = match, open = true, winid = state.content_win, focus = false })
+        nvim_api.tree.find_file({ buf = match.path, open = true, winid = state.content_win, focus = false })
     end
+end
+
+local function refresh_files()
+    if not valid(state.content_win) then
+        return
+    end
+    if state.queries.Files == '' then
+        if state.file_search_timer then
+            state.file_search_timer:stop()
+        end
+        nvim_api.tree.change_root(state.file_root)
+        return
+    end
+
+    if not state.file_search_timer then
+        state.file_search_timer = vim.uv.new_timer()
+    end
+    state.file_search_timer:stop()
+    state.file_search_timer:start(100, 0, vim.schedule_wrap(refresh_files_now))
 end
 
 local function refresh_grep()
@@ -458,21 +502,7 @@ local function select_result(open_result)
     if not result then
         return
     end
-    if state.view == 'Files' and result.tree_line and valid(state.content_win) then
-        vim.api.nvim_win_set_cursor(state.content_win, { result.tree_line, 0 })
-        if open_result then
-            vim.api.nvim_set_current_win(state.content_win)
-            local node = nvim_api.tree.get_node_under_cursor()
-            if node then
-                nvim_api.node.open.edit(node)
-                vim.schedule(function()
-                    if state.active and state.view == 'Files' and not nvim_api.tree.is_visible() then
-                        close_surface()
-                    end
-                end)
-            end
-        end
-    elseif state.view == 'Grep' then
+    if state.view == 'Grep' then
         show_text_preview(result)
         if open_result and result.path then
             close_surface()
@@ -511,6 +541,24 @@ local function create_content()
     end
 end
 
+local function configure_results_pane(bufnr)
+    vim.bo[bufnr].modifiable = false
+    install_surface_mappings(bufnr, 'results')
+    vim.keymap.set('n', '<CR>', function()
+        select_result(true)
+    end, { buffer = bufnr, noremap = true, silent = true })
+    vim.keymap.set('n', '<Esc>', close_surface, { buffer = bufnr, noremap = true, silent = true })
+    vim.api.nvim_create_autocmd('CursorMoved', {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+            if state.active then
+                select_result(false)
+            end
+        end,
+    })
+end
+
 local function ensure_results_pane()
     if valid(state.wins.results) then
         return
@@ -519,20 +567,7 @@ local function ensure_results_pane()
     local g = geometry()
     state.bufs.results = vim.api.nvim_create_buf(false, true)
     state.wins.results = normal_float(state.bufs.results, float_config(g, g.row + 4, g.results_height, nil), false)
-    vim.bo[state.bufs.results].modifiable = false
-    install_surface_mappings(state.bufs.results, 'results')
-    vim.keymap.set('n', '<CR>', function()
-        select_result(true)
-    end, { buffer = state.bufs.results, noremap = true, silent = true })
-    vim.api.nvim_create_autocmd('CursorMoved', {
-        group = augroup,
-        buffer = state.bufs.results,
-        callback = function()
-            if state.active then
-                select_result(false)
-            end
-        end,
-    })
+    configure_results_pane(state.bufs.results)
 end
 
 local function create_surface()
@@ -546,17 +581,13 @@ local function create_surface()
     state.wins.results = normal_float(state.bufs.results, float_config(g, g.row + 4, g.results_height, nil), false)
 
     vim.bo[state.bufs.tabs].modifiable = false
-    vim.bo[state.bufs.results].modifiable = false
     vim.bo[state.bufs.prompt].buftype = 'prompt'
     vim.bo[state.bufs.prompt].modifiable = true
     vim.bo[state.bufs.prompt].filetype = 'MultisearchPrompt'
 
     install_surface_mappings(state.bufs.tabs, 'tabs')
     install_surface_mappings(state.bufs.prompt, 'prompt')
-    install_surface_mappings(state.bufs.results, 'results')
-    vim.keymap.set('n', '<CR>', function()
-        select_result(true)
-    end, { buffer = state.bufs.results, noremap = true, silent = true })
+    configure_results_pane(state.bufs.results)
     vim.keymap.set('n', 'q', close_surface, { buffer = state.bufs.tabs, noremap = true, silent = true })
     vim.keymap.set({ 'n', 'i' }, '<Esc>', close_surface, { buffer = state.bufs.prompt, noremap = true, silent = true })
 
@@ -576,15 +607,6 @@ local function create_surface()
             end)
         end,
     })
-    vim.api.nvim_create_autocmd('CursorMoved', {
-        group = augroup,
-        buffer = state.bufs.results,
-        callback = function()
-            if state.active then
-                select_result(false)
-            end
-        end,
-    })
 end
 
 function M.in_git_repository()
@@ -595,6 +617,7 @@ function M.open(view)
     view = vim.tbl_contains(views, view) and view or 'Files'
     if not state.active then
         state.active = true
+        state.tabpage = vim.api.nvim_get_current_tabpage()
         state.cwd = vim.fn.getcwd()
         state.file_root = state.cwd
         create_surface()

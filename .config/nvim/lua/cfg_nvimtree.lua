@@ -22,6 +22,9 @@ local function on_attach(bufnr)
     vim.keymap.set('n', '<C-Up>', function()
         require('cfg_multisearch').focus_up_from_tree()
     end, opts)
+    vim.keymap.set('n', '<Esc>', function()
+        require('cfg_multisearch').close()
+    end, opts)
     vim.keymap.set('n', '<CR>', function()
         local node = nvim_api.tree.get_node_under_cursor()
         nvim_api.node.open.no_window_picker(node)
@@ -31,6 +34,17 @@ local function on_attach(bufnr)
             end)
         end
     end, opts)
+    local open_in_tab = function()
+        local node = nvim_api.tree.get_node_under_cursor()
+        nvim_api.node.open.tab(node)
+        if node and node.type == 'file' then
+            vim.schedule(function()
+                require('cfg_multisearch').close()
+            end)
+        end
+    end
+    vim.keymap.set('n', 't', open_in_tab, opts)
+    vim.keymap.set('n', '<C-t>', open_in_tab, opts)
 end
 
 require'nvim-tree'.setup {
