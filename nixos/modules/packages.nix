@@ -114,7 +114,28 @@ in {
 
     services.blueman.enable = cfg.bluetooth;
     services.power-profiles-daemon.enable = cfg.laptop;
-    services.thermald.enable = cfg.laptop;
+
+    systemd.services.power-profiles-daemon = lib.mkIf cfg.laptop {
+      wantedBy = ["graphical.target"];
+      wants = ["upower.service"];
+      after = ["upower.service"];
+    };
+
+    services.upower = lib.mkIf cfg.laptop {
+      enable = true;
+      usePercentageForPolicy = true;
+      percentageLow = 20;
+      percentageCritical = 10;
+      percentageAction = 5;
+      criticalPowerAction = "PowerOff";
+    };
+
+    systemd.services.upower.wantedBy = lib.mkIf cfg.laptop ["multi-user.target"];
+
+    services.udev.extraRules = lib.mkIf cfg.laptop ''
+      ACTION=="add", SUBSYSTEM=="power_supply", ATTR{type}=="Battery", TEST=="charge_control_end_threshold", ATTR{charge_control_end_threshold}="80"
+    '';
+
     virtualisation.docker.enable = true;
 
     services.xserver = lib.mkIf cfg.nvidia_driver {
